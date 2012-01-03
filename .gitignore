@@ -1,0 +1,14 @@
+# User-specific files
+*.user
+*.suo
+
+# Build
+[Bb]in
+[Oo]bj
+*.xap
+publish
+
+# Other files
+*.dotCover
+_ReSharper.*
+StyleCop.*
