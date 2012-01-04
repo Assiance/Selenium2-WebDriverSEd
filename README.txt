@@ -1,4 +1,4 @@
-Selenium  2.0 (WebDriver) Helper Classes
+Selenium  2.0 (WebDriver) Helper Classes ---Only For C#---
 
 Make sure to let me know if you are having any issues with anything and I will get to fixing them as soon as I can
 or if you are up to it you are welcome to give fixing it a try. Just send the files and I will get them in the repo 
