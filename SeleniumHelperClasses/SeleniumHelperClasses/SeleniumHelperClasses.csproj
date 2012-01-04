@@ -100,7 +100,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WebElementExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleTests\SampleTests.cs" />
+    <Compile Include="ExampleTests\ExampleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

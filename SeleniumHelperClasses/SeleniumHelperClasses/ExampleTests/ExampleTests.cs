@@ -3,16 +3,18 @@
  Email: Brad.Hill@acstechnologies.com
  Alt Email: Assiance@aol.com
  ********************************************************/
+
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using SeleniumHelperClasses.ElementTypes;
 using SeleniumHelperClasses.Extensions;
 
-namespace SeleniumHelperClasses.SampleTests
+namespace SeleniumHelperClasses.ExampleTests
 {
     [TestFixture]
-    public class SampleTests
+    public class ExampleTests
     {
         public IWebDriver WebDriver { get; set; }
         public IWebElement WebElement { get; set; }
@@ -28,6 +30,30 @@ namespace SeleniumHelperClasses.SampleTests
             //FirefoxProfile profile = profileManager.GetProfile(profiles.First());
 
             WebDriver = new FirefoxDriver(profile);
+        }
+
+        [Test]
+        // This Test does not actually work. Just shows examples of how to use the classes.
+        public void Class_Examples()
+        {
+            ElementSe ele = new ElementSe(WebDriver, By.Id("theId"));
+            
+
+            SelectListSe selectList = new SelectListSe(WebDriver, By.ClassName("theClassName"));
+            
+            selectList.SelectListItem("theOption");
+
+            bool visible = selectList.IsVisible();
+            string theSelectedItem = selectList.GetSelectedItem();
+
+
+            TableSe aTable = new TableSe(WebDriver, By.Id("anID"));
+            
+            // click cell 8 on row 4
+            aTable.TableBody.Rows[5].Cells[9].Click();
+
+            // clear the field and type Tiger in the first cell that contains Tigere in the first row that contains Cats  
+            aTable.TableBody.Rows.First(i => i.Text == "Cats").Cells.First(i => i.Text == "Tigere").ClearFirstSendKeys("Tiger");
         }
 
         [Test]
