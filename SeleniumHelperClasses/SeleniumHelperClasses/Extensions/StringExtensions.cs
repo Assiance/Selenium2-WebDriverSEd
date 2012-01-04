@@ -1,4 +1,9 @@
-﻿using System;
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+using System;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml;

@@ -1,3 +1,8 @@
+/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
 using OpenQA.Selenium.Support.UI;
 using SeleniumHelperClasses.ElementTypes;
 

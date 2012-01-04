@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+using System.Collections.Generic;
 using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
