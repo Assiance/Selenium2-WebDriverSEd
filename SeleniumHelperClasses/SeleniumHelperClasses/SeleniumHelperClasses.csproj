@@ -71,10 +71,10 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.15.0\lib\net40\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.2.16.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.2.15.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>..\packages\Selenium.Support.2.16.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -87,15 +87,22 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementTypes\ButtonSe.cs" />
     <Compile Include="ElementTypes\CheckBoxSe.cs" />
     <Compile Include="ElementTypes\ControlSe.cs" />
+    <Compile Include="ElementTypes\DivSe.cs" />
     <Compile Include="ElementTypes\ElementSe.cs" />
+    <Compile Include="ElementTypes\ImageSe.cs" />
+    <Compile Include="ElementTypes\LabelSe.cs" />
+    <Compile Include="ElementTypes\LinkSe.cs" />
     <Compile Include="ElementTypes\SelectListSe.cs" />
+    <Compile Include="ElementTypes\SpanSe.cs" />
     <Compile Include="ElementTypes\TableBodySe.cs" />
     <Compile Include="ElementTypes\TableCellSe.cs" />
     <Compile Include="ElementTypes\TableHeadSe.cs" />
     <Compile Include="ElementTypes\TableRowSe.cs" />
     <Compile Include="ElementTypes\TableSe.cs" />
+    <Compile Include="ElementTypes\TextFieldSe.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WebElementExtensions.cs" />
