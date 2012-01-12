@@ -19,6 +19,16 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public ControlSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public ControlSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
+
         public IWebDriver WebDriver { get; set; }
     }
 }

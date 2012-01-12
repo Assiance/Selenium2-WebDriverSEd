@@ -22,5 +22,15 @@ namespace SeleniumHelperClasses.ElementTypes
             : base(webElement, by)
         {
         }
+
+        public LabelSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public LabelSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
     }
 }

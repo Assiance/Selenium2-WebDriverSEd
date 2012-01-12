@@ -19,6 +19,16 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public TableCellSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public TableCellSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
+
         public TableCellSe(IWebElement cell)
         {
             WebElement = cell;

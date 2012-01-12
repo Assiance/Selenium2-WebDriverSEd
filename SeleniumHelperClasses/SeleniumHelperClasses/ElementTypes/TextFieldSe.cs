@@ -22,5 +22,15 @@ namespace SeleniumHelperClasses.ElementTypes
             : base(webElement, by)
         {
         }
+
+        public TextFieldSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public TextFieldSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
     }
 }

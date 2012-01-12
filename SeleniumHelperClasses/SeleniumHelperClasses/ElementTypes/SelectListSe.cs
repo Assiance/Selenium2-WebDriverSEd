@@ -19,6 +19,16 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public SelectListSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public SelectListSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
+
         public string GetSelectedItem()
         {
             string targetValue = WebElement.GetAttribute("value");

@@ -22,5 +22,15 @@ namespace SeleniumHelperClasses.ElementTypes
             : base(webElement, by)
         {
         }
+
+        public SpanSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public SpanSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
     }
 }

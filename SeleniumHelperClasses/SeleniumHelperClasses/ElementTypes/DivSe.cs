@@ -22,5 +22,15 @@ namespace SeleniumHelperClasses.ElementTypes
             : base(webElement, by)
         {
         }
+
+        public DivSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public DivSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
     }
 }

@@ -22,6 +22,16 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public TableRowSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public TableRowSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
+
         public TableRowSe(IWebElement body, string rowTag)
         {
             var theCells = body.FindElements(By.TagName(rowTag));

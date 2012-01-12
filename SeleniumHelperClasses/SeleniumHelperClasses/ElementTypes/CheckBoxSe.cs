@@ -19,6 +19,16 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public CheckBoxSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
+        {
+        }
+
+        public CheckBoxSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
+        {
+        }
+
         public void SetChecked(bool isChecked)
         {
             if (Value == "true" && !isChecked)
