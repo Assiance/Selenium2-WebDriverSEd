@@ -15,21 +15,25 @@ namespace SeleniumHelperClasses.ElementTypes
         public TableBodySe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
+            InitializeRows();
         }
 
         public TableBodySe(IWebElement webElement, By by)
             : base(webElement, by)
         {
+            InitializeRows();
         }
 
         public TableBodySe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
             : base(webDriver, by, predicate)
         {
+            InitializeRows();
         }
 
         public TableBodySe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
+            InitializeRows();
         }
 
         public TableBodySe(IWebElement body)
@@ -49,6 +53,18 @@ namespace SeleniumHelperClasses.ElementTypes
             get
             {
                 return rows;
+            }
+        }
+
+        private void InitializeRows()
+        {
+            var theRows = WebElement.FindElements(By.TagName("tr"));
+
+            foreach (var row in theRows)
+            {
+                TableRowSe temp = new TableRowSe(row, "td");
+
+                Rows.Add(temp);
             }
         }
     }
