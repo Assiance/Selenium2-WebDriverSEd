@@ -29,13 +29,33 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
-        public void SetChecked(bool isChecked)
+        public bool Checked
         {
-            if (Value == "true" && !isChecked)
+            get
+            {
+                try
+                {
+                    if (WebElement.GetAttribute("checked=") == "checked")
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public void SetChecked(bool theValue)
+        {
+            if (theValue && !Checked)
             {
                 WebElement.Click();
             }
-            else if (Value == "false" && isChecked)
+            else if (!theValue && Checked)
             {
                 WebElement.Click();
             }
