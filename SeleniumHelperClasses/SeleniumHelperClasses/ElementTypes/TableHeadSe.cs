@@ -3,6 +3,7 @@
  Email: Brad.Hill@acstechnologies.com
  Alt Email: Assiance@aol.com
  ********************************************************/
+using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 
