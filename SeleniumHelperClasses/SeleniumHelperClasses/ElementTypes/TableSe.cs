@@ -30,11 +30,11 @@ namespace SeleniumHelperClasses.ElementTypes
         {
             if (WebElement.Text.Contains("thead"))
             {
-                var head = WebElement.FindElement(By.TagName("thead"));
+                TableHeadSe head = new TableHeadSe(WebElement, By.TagName("thead"));
                 TableHead = new TableHeadSe(head);
             }
 
-            var body = WebElement.FindElement(By.TagName("tbody"));
+            TableBodySe body = new TableBodySe(WebElement, By.TagName("tbody"));
             TableBody = new TableBodySe(body);
         }
 
