@@ -15,6 +15,11 @@ namespace SeleniumHelperClasses.ElementTypes
         {            
         }
 
+        public ElementSe(IWebElement webElement)
+        {
+            WebElement = WebElement;
+        }
+
         public ElementSe(IWebDriver webDriver, By by)
         {
             try

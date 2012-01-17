@@ -4,6 +4,8 @@
  Alt Email: Assiance@aol.com
  ********************************************************/
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
@@ -46,6 +48,13 @@ namespace SeleniumHelperClasses.ElementTypes
             TableRowSe row = TableBody.Rows.Find(i => i.Cells[keyColumn].Text.Contains(key));
             TableCellSe cell = row.Cells[valueColumn];
             return cell.Text;
+        }
+
+        public void ClickTableButton(string keyValue, int keyColumnIndex, int actionColumnIndex)
+        {
+            TableRowSe row = TableBody.Rows.Find(i => i.Cells[keyColumnIndex].Text.Contains(keyValue));
+            var button = row.Cells[actionColumnIndex].FindElements(By.TagName("input"));
+            button.First().Click();
         }
     }
 }
