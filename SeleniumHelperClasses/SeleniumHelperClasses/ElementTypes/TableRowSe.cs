@@ -37,9 +37,10 @@ namespace SeleniumHelperClasses.ElementTypes
             InitializeCells();
         }
 
-        public TableRowSe(IWebElement body, string rowTag)
+        public TableRowSe(IWebElement row, string rowTag)
+            : base(row)
         {
-            var theCells = body.FindElements(By.TagName(rowTag));
+            var theCells = row.FindElements(By.TagName(rowTag));
 
             foreach (var cell in theCells)
             {
@@ -49,9 +50,10 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
-        public TableRowSe(IWebElement body)
+        public TableRowSe(IWebElement row)
+            : base(row)
         {
-            var theCells = body.FindElements(By.TagName("td"));
+            var theCells = row.FindElements(By.TagName("td"));
 
             foreach (var cell in theCells)
             {

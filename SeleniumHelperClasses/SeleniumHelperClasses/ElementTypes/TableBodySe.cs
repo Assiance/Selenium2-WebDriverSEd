@@ -38,6 +38,7 @@ namespace SeleniumHelperClasses.ElementTypes
         }
 
         public TableBodySe(IWebElement body)
+            : base(body)
         {
             var theRows = body.FindElements(By.TagName("tr"));
 

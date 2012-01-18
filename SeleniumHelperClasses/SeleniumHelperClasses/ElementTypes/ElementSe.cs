@@ -15,9 +15,9 @@ namespace SeleniumHelperClasses.ElementTypes
         {            
         }
 
-        public ElementSe(IWebElement webElement)
+        public ElementSe(IWebElement theElement)
         {
-            WebElement = WebElement;
+            WebElement = theElement;
         }
 
         public ElementSe(IWebDriver webDriver, By by)

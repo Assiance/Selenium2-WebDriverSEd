@@ -58,13 +58,13 @@ namespace SeleniumHelperClasses.ElementTypes
             button.First().Click();
         }
 
-        public List<string> GetRowTextCommaSeparated()
+        public List<string> GetCommaSeparatedTableRowText()
         {
             List<string> tableValues = new List<string>();
 
             foreach (TableRowSe row in TableBody.Rows)
             {
-                if (row.Cells[1].Style.ToLower() != "none")
+                if (row.Style.ToLower() != "none")
                 {
                     StringBuilder sb = new StringBuilder();
                     foreach (TableCellSe cell in row.Cells)
@@ -77,7 +77,7 @@ namespace SeleniumHelperClasses.ElementTypes
                 }
             }
 
-            return new List<string>();
+            return tableValues;
         }
     }
 }

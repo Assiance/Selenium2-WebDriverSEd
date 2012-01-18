@@ -18,7 +18,7 @@ namespace SeleniumHelperClasses.ElementTypes
         {
             InitializeRows();
         }
-
+       
         public TableHeadSe(IWebElement webElement, By by)
             : base(webElement, by)
         {
@@ -38,6 +38,7 @@ namespace SeleniumHelperClasses.ElementTypes
         }
 
         public TableHeadSe(IWebElement body)
+            : base(body)
         {
             var theRows = body.FindElements(By.TagName("tr"));
 
