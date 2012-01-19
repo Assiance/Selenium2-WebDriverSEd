@@ -33,7 +33,13 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public ElementSe(IWebElement webElement, By by)
         {
-            WebElement = webElement.FindElement(by);
+            try
+            {
+                WebElement = webElement.FindElement(by);
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ElementSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)

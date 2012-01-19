@@ -88,22 +88,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ElementTypes\ButtonSe.cs" />
+    <Compile Include="ElementTypes\ButtonSeCollection.cs" />
     <Compile Include="ElementTypes\CheckBoxSe.cs" />
+    <Compile Include="ElementTypes\CheckBoxSeCollection.cs" />
     <Compile Include="ElementTypes\ControlSe.cs" />
     <Compile Include="ElementTypes\DivSe.cs" />
+    <Compile Include="ElementTypes\DivSeCollection.cs" />
     <Compile Include="ElementTypes\ElementSe.cs" />
     <Compile Include="ElementTypes\ElementSeCollection.cs" />
     <Compile Include="ElementTypes\ImageSe.cs" />
+    <Compile Include="ElementTypes\ImageSeCollection.cs" />
     <Compile Include="ElementTypes\LabelSe.cs" />
+    <Compile Include="ElementTypes\LabelSeCollection.cs" />
     <Compile Include="ElementTypes\LinkSe.cs" />
+    <Compile Include="ElementTypes\LinkSeCollection.cs" />
     <Compile Include="ElementTypes\SelectListSe.cs" />
+    <Compile Include="ElementTypes\SelectListSeCollection.cs" />
     <Compile Include="ElementTypes\SpanSe.cs" />
+    <Compile Include="ElementTypes\SpanSeCollection.cs" />
     <Compile Include="ElementTypes\TableBodySe.cs" />
+    <Compile Include="ElementTypes\TableBodySeCollection.cs" />
     <Compile Include="ElementTypes\TableCellSe.cs" />
+    <Compile Include="ElementTypes\TableCellSeCollection.cs" />
     <Compile Include="ElementTypes\TableHeadSe.cs" />
+    <Compile Include="ElementTypes\TableHeadSeCollection.cs" />
     <Compile Include="ElementTypes\TableRowSe.cs" />
+    <Compile Include="ElementTypes\TableRowSeCollection.cs" />
     <Compile Include="ElementTypes\TableSe.cs" />
+    <Compile Include="ElementTypes\TableSeCollection.cs" />
     <Compile Include="ElementTypes\TextFieldSe.cs" />
+    <Compile Include="ElementTypes\TextFieldSeCollection.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WebDriverExtensions.cs" />

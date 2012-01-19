@@ -1,29 +1,33 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
+using SeleniumHelperClasses.Extensions;
 using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
     public class ElementSeCollection : IList<ElementSe>
     {
+        public List<ElementSe> Elements { get; set; }
+
         public ElementSeCollection()
         {
-
+            Elements = new List<ElementSe>();
         }
 
-        private List<ElementSe> d { get; set; }
         public ElementSeCollection(IWebDriver webDriver, By by)
-        {
+        { 
             try
             {
-                var webElements = webDriver.FindElements(by);
+                Elements = new List<ElementSe>();
+                var tempElements = webDriver.FindElements(by);
 
-                foreach (var webElement in webElements)
+                foreach (IWebElement element in tempElements)
                 {
-
+                    Elements.Add(new ElementSe(element));
                 }
             }
             catch (NoSuchElementException)
@@ -33,14 +37,32 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public ElementSeCollection(IWebElement webElement, By by)
         {
-            // WebElement = webElement.FindElement(by);
+            try
+            {
+                Elements = new List<ElementSe>();
+                var tempElements = webElement.FindElements(by);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    Elements.Add(new ElementSe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ElementSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
         {
             try
             {
-                //  WebElement = webDriver.FindElement(by, predicate);
+                Elements = new List<ElementSe>();
+                var tempElements = webDriver.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    Elements.Add(new ElementSe(element));
+                }
             }
             catch (NoSuchElementException)
             {
@@ -51,7 +73,13 @@ namespace SeleniumHelperClasses.ElementTypes
         {
             try
             {
-                //WebElement = webElement.FindElement(by, predicate);
+                Elements = new List<ElementSe>();
+                var tempElements = webElement.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    Elements.Add(new ElementSe(element));
+                }
             }
             catch (NoSuchElementException)
             {
@@ -60,7 +88,7 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public IEnumerator<ElementSe> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return Elements.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -70,32 +98,32 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public void Add(ElementSe item)
         {
-
+            Elements.Add(item);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            Elements.Clear();
         }
 
         public bool Contains(ElementSe item)
         {
-            throw new NotImplementedException();
+            return Elements.Contains(item);
         }
 
         public void CopyTo(ElementSe[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            Elements.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(ElementSe item)
         {
-            throw new NotImplementedException();
+            return Elements.Remove(item);
         }
 
         public int Count
         {
-            get { throw new NotImplementedException(); }
+            get { return Elements.Count; }
         }
 
         public bool IsReadOnly
@@ -105,23 +133,23 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public int IndexOf(ElementSe item)
         {
-            throw new NotImplementedException();
+            return Elements.IndexOf(item);
         }
 
         public void Insert(int index, ElementSe item)
         {
-            throw new NotImplementedException();
+            Elements.Insert(index, item);
         }
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            Elements.RemoveAt(index);
         }
 
         public ElementSe this[int index]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return Elements[index]; }
+            set { Elements[index] = value; }
         }
     }
 }
