@@ -71,7 +71,7 @@ namespace SeleniumHelperClasses.ElementTypes
             get { return WebElement.Displayed; }
         }
 
-        public bool IsPresent
+        public bool Exists
         {
             get
             {

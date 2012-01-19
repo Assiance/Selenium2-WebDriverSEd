@@ -78,7 +78,7 @@ namespace SeleniumHelperClasses.ExampleTests
             SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
 
             // verify the selectlist is present on the page and the selected option is "Jan"
-            Assert.IsTrue(month.IsPresent);
+            Assert.IsTrue(month.Exists);
             Assert.IsTrue(month.GetSelectedItem() == "Jan");
 
             // change the selected option to "Aug"
@@ -107,7 +107,7 @@ namespace SeleniumHelperClasses.ExampleTests
 
             SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
 
-            Assert.IsTrue(month.IsPresent);
+            Assert.IsTrue(month.Exists);
             Assert.IsTrue(month.GetSelectedItem() == "Jan");
 
             month.SelectListItem("Aug");

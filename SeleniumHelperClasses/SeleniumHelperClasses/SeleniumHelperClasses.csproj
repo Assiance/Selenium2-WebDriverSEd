@@ -102,6 +102,8 @@
     <Compile Include="ElementTypes\LabelSeCollection.cs" />
     <Compile Include="ElementTypes\LinkSe.cs" />
     <Compile Include="ElementTypes\LinkSeCollection.cs" />
+    <Compile Include="ElementTypes\RadioButtonSe.cs" />
+    <Compile Include="ElementTypes\RadioButtonSeCollection.cs" />
     <Compile Include="ElementTypes\SelectListSe.cs" />
     <Compile Include="ElementTypes\SelectListSeCollection.cs" />
     <Compile Include="ElementTypes\SpanSe.cs" />
