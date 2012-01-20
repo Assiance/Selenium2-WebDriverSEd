@@ -38,8 +38,9 @@ namespace SeleniumHelperClasses.ElementTypes
         }
 
         public TableBodySe(IWebElement body)
+            : base(body)
         {
-            var theRows = body.FindElements(By.TagName("tr"));
+            TableRowSeCollection theRows = new TableRowSeCollection(body, By.TagName("tr"));
 
             foreach (var row in theRows)
             {
@@ -59,7 +60,7 @@ namespace SeleniumHelperClasses.ElementTypes
 
         private void InitializeRows()
         {
-            var theRows = WebElement.FindElements(By.TagName("tr"));
+            TableRowSeCollection theRows = new TableRowSeCollection(WebElement, By.TagName("tr"));
 
             foreach (var row in theRows)
             {

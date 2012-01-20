@@ -30,7 +30,7 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
-        public bool Checked
+        public bool IsChecked
         {
             get
             {
@@ -52,11 +52,11 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public void SetChecked(bool theValue)
         {
-            if (theValue && !Checked)
+            if (theValue && !IsChecked)
             {
                 WebElement.Click();
             }
-            else if (!theValue && Checked)
+            else if (!theValue && IsChecked)
             {
                 WebElement.Click();
             }

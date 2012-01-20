@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
@@ -55,6 +56,28 @@ namespace SeleniumHelperClasses.ElementTypes
             TableRowSe row = TableBody.Rows.Find(i => i.Cells[keyColumnIndex].Text.Contains(keyValue));
             var button = row.Cells[actionColumnIndex].FindElements(By.TagName("input"));
             button.First().Click();
+        }
+
+        public List<string> GetCommaSeparatedTableRowText()
+        {
+            List<string> tableValues = new List<string>();
+
+            foreach (TableRowSe row in TableBody.Rows)
+            {
+                if (row.Style.ToLower() != "none")
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (TableCellSe cell in row.Cells)
+                    {
+                        sb.AppendFormat("{0}, ", cell.Text);
+                    }
+
+                    string s = sb.ToString().Trim().Trim(',');
+                    tableValues.Add(s);
+                }
+            }
+
+            return tableValues;
         }
     }
 }

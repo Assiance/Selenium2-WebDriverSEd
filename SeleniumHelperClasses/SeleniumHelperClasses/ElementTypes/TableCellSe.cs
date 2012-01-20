@@ -31,8 +31,8 @@ namespace SeleniumHelperClasses.ElementTypes
         }
 
         public TableCellSe(IWebElement cell)
+            : base(cell)
         {
-            WebElement = cell;
         }
     }
 }

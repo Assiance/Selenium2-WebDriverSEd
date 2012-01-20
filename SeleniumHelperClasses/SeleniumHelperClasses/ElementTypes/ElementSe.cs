@@ -15,9 +15,9 @@ namespace SeleniumHelperClasses.ElementTypes
         {            
         }
 
-        public ElementSe(IWebElement webElement)
+        public ElementSe(IWebElement theElement)
         {
-            WebElement = WebElement;
+            WebElement = theElement;
         }
 
         public ElementSe(IWebDriver webDriver, By by)
@@ -33,7 +33,13 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public ElementSe(IWebElement webElement, By by)
         {
-            WebElement = webElement.FindElement(by);
+            try
+            {
+                WebElement = webElement.FindElement(by);
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ElementSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
@@ -65,7 +71,7 @@ namespace SeleniumHelperClasses.ElementTypes
             get { return WebElement.Displayed; }
         }
 
-        public bool IsPresent
+        public bool Exists
         {
             get
             {
