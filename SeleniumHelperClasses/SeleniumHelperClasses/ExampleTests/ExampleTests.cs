@@ -3,7 +3,6 @@
  Email: Brad.Hill@acstechnologies.com
  Alt Email: Assiance@aol.com
  ********************************************************/
-
 using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
