@@ -40,7 +40,7 @@ namespace SeleniumHelperClasses.ElementTypes
         public TableRowSe(IWebElement row, string rowTag)
             : base(row)
         {
-            var theCells = row.FindElements(By.TagName(rowTag));
+            TableCellSeCollection theCells = new TableCellSeCollection(row, By.TagName(rowTag));
 
             foreach (var cell in theCells)
             {
@@ -53,7 +53,7 @@ namespace SeleniumHelperClasses.ElementTypes
         public TableRowSe(IWebElement row)
             : base(row)
         {
-            var theCells = row.FindElements(By.TagName("td"));
+            TableCellSeCollection theCells = new TableCellSeCollection(row, By.TagName("td"));
 
             foreach (var cell in theCells)
             {
@@ -73,7 +73,7 @@ namespace SeleniumHelperClasses.ElementTypes
 
         private void InitializeCells()
         {
-            var theCells = WebElement.FindElements(By.TagName("td"));
+            TableCellSeCollection theCells = new TableCellSeCollection(WebElement, By.TagName("td"));
 
             foreach (var cell in theCells)
             {
