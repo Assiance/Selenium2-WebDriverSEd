@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class LabelSe : ElementSe
     {
+        public LabelSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public LabelSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

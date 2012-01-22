@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class ImageSe : ElementSe
     {
+        public ImageSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public ImageSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

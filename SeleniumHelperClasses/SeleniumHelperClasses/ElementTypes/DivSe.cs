@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class DivSe : ElementSe
     {
+        public DivSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public DivSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

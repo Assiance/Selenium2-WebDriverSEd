@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class SpanSe : ElementSe
     {
+        public SpanSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public SpanSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

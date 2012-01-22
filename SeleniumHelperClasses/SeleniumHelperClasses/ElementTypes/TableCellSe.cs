@@ -10,6 +10,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class TableCellSe : ElementSe
     {
+        public TableCellSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public TableCellSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -27,11 +32,6 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public TableCellSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
-        {
-        }
-
-        public TableCellSe(IWebElement cell)
-            : base(cell)
         {
         }
     }

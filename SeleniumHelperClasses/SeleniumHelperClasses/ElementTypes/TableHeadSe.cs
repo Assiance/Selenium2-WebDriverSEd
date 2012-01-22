@@ -11,8 +11,6 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class TableHeadSe : ElementSe
     {
-        private List<TableRowSe> rows = new List<TableRowSe>();
-
         public TableHeadSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -49,6 +47,8 @@ namespace SeleniumHelperClasses.ElementTypes
                 Rows.Add(temp);
             }
         }
+
+        private List<TableRowSe> rows = new List<TableRowSe>();
 
         public List<TableRowSe> Rows
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using SeleniumHelperClasses.Entities.Data;
 using SeleniumHelperClasses.ElementTypes;
 using SeleniumHelperClasses.Extensions;
 
@@ -36,14 +37,13 @@ namespace SeleniumHelperClasses.ExampleTests
         public void Class_Examples()
         {
             ElementSe ele = new ElementSe(WebDriver, By.Id("theId"));
-            
 
             SelectListSe selectList = new SelectListSe(WebDriver, By.ClassName("theClassName"));
             
             selectList.SelectListItem("theOption");
 
             bool visible = selectList.IsVisible();
-            string theSelectedItem = selectList.GetSelectedItem();
+            string theSelectedItem = selectList.SelectedOption.Text;
 
 
             TableSe aTable = new TableSe(WebDriver, By.Id("anID"));
@@ -78,7 +78,7 @@ namespace SeleniumHelperClasses.ExampleTests
 
             // verify the selectlist is present on the page and the selected option is "Jan"
             Assert.IsTrue(month.Exists);
-            Assert.IsTrue(month.GetSelectedItem() == "Jan");
+            Assert.IsTrue(month.SelectedOption.Text == "Jan");
 
             // change the selected option to "Aug"
             month.SelectListItem("Aug");
@@ -107,9 +107,10 @@ namespace SeleniumHelperClasses.ExampleTests
             SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
 
             Assert.IsTrue(month.Exists);
-            Assert.IsTrue(month.GetSelectedItem() == "Jan");
+            Assert.IsTrue(month.SelectedOption.Text == "Jan");
 
             month.SelectListItem("Aug");
+
 
             ElementSe calcButton = new ElementSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate");
             calcButton.Click();

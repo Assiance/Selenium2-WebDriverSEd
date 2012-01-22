@@ -87,6 +87,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Data\ElementNames.cs" />
+    <Compile Include="Entities\Data\ElementType.cs" />
     <Compile Include="ElementTypes\ButtonSe.cs" />
     <Compile Include="ElementTypes\ButtonSeCollection.cs" />
     <Compile Include="ElementTypes\CheckBoxSe.cs" />
@@ -120,6 +122,8 @@
     <Compile Include="ElementTypes\TableSeCollection.cs" />
     <Compile Include="ElementTypes\TextFieldSe.cs" />
     <Compile Include="ElementTypes\TextFieldSeCollection.cs" />
+    <Compile Include="Entities\Args\FindRow.cs" />
+    <Compile Include="Entities\Data\TypeSe.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WebDriverExtensions.cs" />

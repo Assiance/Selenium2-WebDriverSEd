@@ -10,6 +10,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class CheckBoxSe : ElementSe
     {
+        public CheckBoxSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public CheckBoxSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

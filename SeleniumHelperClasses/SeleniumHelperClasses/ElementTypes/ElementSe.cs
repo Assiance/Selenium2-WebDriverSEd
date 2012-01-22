@@ -6,6 +6,7 @@
 using System;
 using OpenQA.Selenium;
 using SeleniumHelperClasses.Extensions;
+using SeleniumHelperClasses.Entities.Data;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
@@ -15,9 +16,9 @@ namespace SeleniumHelperClasses.ElementTypes
         {            
         }
 
-        public ElementSe(IWebElement theElement)
+        public ElementSe(IWebElement webElement)
         {
-            WebElement = theElement;
+            WebElement = webElement;
         }
 
         public ElementSe(IWebDriver webDriver, By by)
@@ -191,6 +192,60 @@ namespace SeleniumHelperClasses.ElementTypes
                     return null;
                 }
              }
+        }
+
+        public object ConvertTo(TypeSe element)
+        {
+            switch (element.ToString())
+            {
+                case "Button":
+                    return new ButtonSe(WebElement);
+
+                case "CheckBox":
+                    return new CheckBoxSe(WebElement);
+
+                case "Div":
+                    return new DivSe(WebElement);
+
+                case "Image":
+                    return new ImageSe(WebElement);
+
+                case "Label":
+                    return new LabelSe(WebElement);
+
+                case "Link":
+                    return new LinkSe(WebElement);
+
+                case "RadioButton":
+                    return new RadioButtonSe(WebElement);
+
+                case "SelectList":
+                    return new SelectListSe(WebElement);
+
+                case "Span":
+                    return new SpanSe(WebElement);
+
+                case "TableBody":
+                    return new TableBodySe(WebElement);
+
+                case "TableCell":
+                    return new TableCellSe(WebElement);
+
+                case "TableHead":
+                    return new TableHeadSe(WebElement);
+
+                case "TableRow":
+                    return new TableRowSe(WebElement);
+
+                case "Table":
+                    return new TableSe(WebElement);
+
+                case "TextField":
+                    return new TextFieldSe(WebElement);
+                
+                default:
+                    return null;
+            }
         }
 
         public IWebElement FindElement(By by)
