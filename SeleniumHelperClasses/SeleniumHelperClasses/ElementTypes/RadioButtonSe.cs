@@ -8,6 +8,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class RadioButtonSe : ElementSe
     {
+        public RadioButtonSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public RadioButtonSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

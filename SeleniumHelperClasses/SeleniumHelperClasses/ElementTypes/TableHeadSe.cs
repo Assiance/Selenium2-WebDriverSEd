@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
+using System.Text;
+using SeleniumHelperClasses.Entities.Args;
+using SeleniumHelperClasses.Entities.Data;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
     public class TableHeadSe : ElementSe
     {
-        private List<TableRowSe> rows = new List<TableRowSe>();
-
         public TableHeadSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -50,6 +51,8 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
+        private List<TableRowSe> rows = new List<TableRowSe>();
+
         public List<TableRowSe> Rows
         {
             get
@@ -68,6 +71,40 @@ namespace SeleniumHelperClasses.ElementTypes
 
                 Rows.Add(temp);
             }
+        }
+
+        public TableRowSe GetRow(FindRow findRow)
+        {
+            return Rows.Find(i => i.Cells[findRow.KeyColumn].Text.Contains(findRow.Key));
+        }
+
+        public object GetTableElement(FindRow findRow, int targetColumn, TypeSe ele)
+        {
+            TableRowSe row = GetRow(findRow);
+            ElementSe element = new ElementSe(row.Cells[targetColumn], By.TagName(ele.ToTag()));
+            return element.ConvertTo(ele);
+        }
+
+        public List<string> GetCommaSeparatedTableRowText()
+        {
+            List<string> tableValues = new List<string>();
+
+            foreach (TableRowSe row in Rows)
+            {
+                if (row.Style.ToLower() != "none")
+                {
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    foreach (TableCellSe cell in row.Cells)
+                    {
+                        sb.AppendFormat("{0}, ", cell.Text);
+                    }
+
+                    string s = sb.ToString().Trim().Trim(',');
+                    tableValues.Add(s);
+                }
+            }
+
+            return tableValues;
         }
     }
 }

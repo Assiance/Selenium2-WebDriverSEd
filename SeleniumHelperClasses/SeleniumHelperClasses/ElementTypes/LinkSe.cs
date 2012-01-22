@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class LinkSe : ElementSe
     {
+        public LinkSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public LinkSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

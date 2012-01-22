@@ -12,6 +12,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class SelectListSe : ElementSe
     {
+        public SelectListSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public SelectListSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -56,13 +61,6 @@ namespace SeleniumHelperClasses.ElementTypes
         public IWebElement SelectedOption
         {
             get { return SelectElement.SelectedOption; }
-        }
-
-        public string GetSelectedItem()
-        {
-            string targetValue = WebElement.GetAttribute("value");
-
-            return WebElement.FindElement(By.CssSelector("select [value='" + targetValue + "']")).Text;
         }
 
         public void DeselectAll()

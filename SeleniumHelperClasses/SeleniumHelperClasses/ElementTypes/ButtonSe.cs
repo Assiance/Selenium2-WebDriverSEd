@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class ButtonSe : ElementSe
     {
+        public ButtonSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public ButtonSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

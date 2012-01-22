@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class TableSe : ElementSe
     {
+        public TableSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public TableSe(IWebElement webElement, By by)
             : base(webElement, by)
         {
@@ -43,42 +48,6 @@ namespace SeleniumHelperClasses.ElementTypes
 
         public TableHeadSe TableHead { get; set; }
         public TableBodySe TableBody { get; set; }
-
-        public string GetValueFromColumn(string key, int keyColumn, int valueColumn)
-        {
-            TableRowSe row = TableBody.Rows.Find(i => i.Cells[keyColumn].Text.Contains(key));
-            TableCellSe cell = row.Cells[valueColumn];
-            return cell.Text;
-        }
-
-        public void ClickTableButton(string keyValue, int keyColumnIndex, int actionColumnIndex)
-        {
-            TableRowSe row = TableBody.Rows.Find(i => i.Cells[keyColumnIndex].Text.Contains(keyValue));
-            var button = row.Cells[actionColumnIndex].FindElements(By.TagName("input"));
-            button.First().Click();
-        }
-
-        public List<string> GetCommaSeparatedTableRowText()
-        {
-            List<string> tableValues = new List<string>();
-
-            foreach (TableRowSe row in TableBody.Rows)
-            {
-                if (row.Style.ToLower() != "none")
-                {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (TableCellSe cell in row.Cells)
-                    {
-                        sb.AppendFormat("{0}, ", cell.Text);
-                    }
-
-                    string s = sb.ToString().Trim().Trim(',');
-                    tableValues.Add(s);
-                }
-            }
-
-            return tableValues;
-        }
     }
 }
 

@@ -11,8 +11,6 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class TableRowSe : ElementSe
     {
-        private List<TableCellSe> cells = new List<TableCellSe>();
-
         public TableRowSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -63,12 +61,19 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
+        private List<TableCellSe> cells = new List<TableCellSe>();
+
         public List<TableCellSe> Cells
         {
             get
             {
                 return cells;
             }
+        }
+
+        public TableCellSe GetCellFromRow(int valueColumn)
+        {
+            return Cells[valueColumn];
         }
 
         private void InitializeCells()

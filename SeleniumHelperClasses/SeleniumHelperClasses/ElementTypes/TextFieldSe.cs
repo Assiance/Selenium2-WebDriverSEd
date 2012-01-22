@@ -13,6 +13,11 @@ namespace SeleniumHelperClasses.ElementTypes
 {
     public class TextFieldSe : ElementSe
     {
+        public TextFieldSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public TextFieldSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
