@@ -78,12 +78,12 @@ namespace SeleniumHelperClasses.ElementTypes
             return Rows.Find(i => i.Cells[findRow.KeyColumn].Text.Contains(findRow.Key));
         }
 
-        public object GetTableElement(FindRow findRow, int targetColumn, TypeSe ele)
-        {
-            TableRowSe row = GetRow(findRow);
-            ElementSe element = new ElementSe(row.Cells[targetColumn], By.TagName(ele.ToTag()));
-            return element.ConvertTo(ele);
-        }
+        //public object GetTableElement(FindRow findRow, int targetColumn, TypeSe ele)
+        //{
+        //    TableRowSe row = GetRow(findRow);
+        //    ElementSe element = new ElementSe(row.Cells[targetColumn], By.TagName(ele.ToTag()));
+        //    return element.ConvertTo(ele);
+        //}
 
         public List<string> GetCommaSeparatedTableRowText()
         {
