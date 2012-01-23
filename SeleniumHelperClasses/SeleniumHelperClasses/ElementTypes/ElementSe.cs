@@ -4,6 +4,7 @@
  Alt Email: Assiance@aol.com
  ********************************************************/
 using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumHelperClasses.Extensions;
 using SeleniumHelperClasses.Entities.Data;
@@ -245,6 +246,26 @@ namespace SeleniumHelperClasses.ElementTypes
         public void Submit()
         {
             WebElement.Submit();
+        }
+
+        public bool TestElementAccess(string elementLabel, bool hasAccess)
+        {
+            if (!Exists)
+            {
+                Assert.That(!hasAccess, "The {0} does not exist and it should.", elementLabel);
+                return false;
+            }
+
+            if (hasAccess)
+            {
+                Assert.That(Exists, "The {0} does not exist and it should.", elementLabel);
+                return true;
+            }
+            else
+            {
+                Assert.That(!Exists, "The {0} exists and it should not.", elementLabel);
+                return false;
+            }
         }
     }
 }

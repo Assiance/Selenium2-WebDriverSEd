@@ -41,7 +41,7 @@ namespace SeleniumHelperClasses.ElementTypes
             {
                 try
                 {
-                    if (WebElement.GetAttribute("checked=") == "checked")
+                    if (WebElement.Selected)
                     {
                         return true;
                     }
