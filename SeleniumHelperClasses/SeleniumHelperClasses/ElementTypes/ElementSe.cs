@@ -194,58 +194,11 @@ namespace SeleniumHelperClasses.ElementTypes
              }
         }
 
-        public object ConvertTo(TypeSe element)
+        public T ConvertTo<T>() where T : ElementSe
         {
-            switch (element.ToString())
-            {
-                case "Button":
-                    return new ButtonSe(WebElement);
+            var instance = Activator.CreateInstance(typeof(T), new object[] { WebElement }) as T;
 
-                case "CheckBox":
-                    return new CheckBoxSe(WebElement);
-
-                case "Div":
-                    return new DivSe(WebElement);
-
-                case "Image":
-                    return new ImageSe(WebElement);
-
-                case "Label":
-                    return new LabelSe(WebElement);
-
-                case "Link":
-                    return new LinkSe(WebElement);
-
-                case "RadioButton":
-                    return new RadioButtonSe(WebElement);
-
-                case "SelectList":
-                    return new SelectListSe(WebElement);
-
-                case "Span":
-                    return new SpanSe(WebElement);
-
-                case "TableBody":
-                    return new TableBodySe(WebElement);
-
-                case "TableCell":
-                    return new TableCellSe(WebElement);
-
-                case "TableHead":
-                    return new TableHeadSe(WebElement);
-
-                case "TableRow":
-                    return new TableRowSe(WebElement);
-
-                case "Table":
-                    return new TableSe(WebElement);
-
-                case "TextField":
-                    return new TextFieldSe(WebElement);
-                
-                default:
-                    return null;
-            }
+            return instance;
         }
 
         public IWebElement FindElement(By by)
