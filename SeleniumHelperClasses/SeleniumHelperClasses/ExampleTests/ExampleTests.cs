@@ -76,6 +76,8 @@ namespace SeleniumHelperClasses.ExampleTests
 
             SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
 
+            var checkBox = month.ConvertTo<CheckBoxSe>();
+
             // verify the selectlist is present on the page and the selected option is "Jan"
             Assert.IsTrue(month.Exists);
             Assert.IsTrue(month.SelectedOption.Text == "Jan");
