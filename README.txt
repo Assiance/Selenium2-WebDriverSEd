@@ -44,47 +44,48 @@ public void WebDriver_Vs_WebDriverSEd()
 
     //Initializing******************************************************
 
-    //webDriver
+    //***webDriver
     //IWebElement pageHolderdivClass = WebDriver.findElement(By.ClassName("pageHolder"));
-    //WebDriverSEd
+    //***WebDriverSEd
      ElementSe pageHolderdivClass = new ElementSe(WebDriver, By.ClassName("pageHolder"));
 
-    //webDriver
+    //***webDriver
     //IWebElement loanAmount_searchWholePage = WebDriver.findElement(By.Id("ctl00_well_DefaultUC_loanAmount"));
     //IWebElement loanAmount_searchPageHolderDiv = pageHolderdivClass.findElement(By.Id("ctl00_well_DefaultUC_loanAmount"));
-    //WebDriverSEd
+    //***WebDriverSEd
     ElementSe loanAmount_searchWholePage = new ElementSe(WebDriver, By.Id("ctl00_well_DefaultUC_loanAmount"));
     ElementSe loanAmount_searchPageHolderDiv = new ElementSe(pageHolderdivClass, By.Id("ctl00_well_DefaultUC_loanAmount"));
 
     //Sending Keys******************************************************
 
-    //WebDriver
-    // pageHolderdivClass.Clear();
-    // pageHolderdivClass.SendKeys("3000.00");
-    //WebDriverSEd
+    //***WebDriver
+    //pageHolderdivClass.Clear();
+    //pageHolderdivClass.SendKeys("3000.00");
+    //***WebDriverSEd
     pageHolderdivClass.ClearFirstSendKeys("3000.00");
 
     // Using a SelectList***************************************************
 
-    //webDriver
+    //***webDriver
     //IWebElement month = WebDriver.findElement(By.Id("ctl00_well_DefaultUC_LoanMonth"));
+    //***webDriverSEd
     SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
 
-    //WebDriver
+    //***WebDriver
     //SelectElement monthSelect = new SelectElement(month);
     //Assert.IsTrue(monthSelect.SelectedOption.Text == "Jan");
-    //WebDriverSEd
+    //***WebDriverSEd
     Assert.IsTrue(month.SelectedOption.Text == "Jan");
 
-    //WebDriver
+    //***WebDriver
     //monthSelect.SelectListItem("Aug");
-    //WebDriverSEd
+    //***WebDriverSEd
     month.SelectListItem("Aug");
 
     // Using LinQ Statements
             
-    //WebDriver
-    // There isnt a way to do LinQ statements in the webdriver therefore you would have to use the xpath or css selectors to find this element.
-    //WebDriverSEd
+    //***WebDriver
+    //There isnt a way to do LinQ statements in the webdriver therefore you would have to use the xpath or css selectors to find this element.
+    //***WebDriverSEd
     new ButtonSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate").Click();
 }
