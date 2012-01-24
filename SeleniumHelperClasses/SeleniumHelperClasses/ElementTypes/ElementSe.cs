@@ -155,6 +155,21 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
+        public string Title
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("title");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
         public bool Enabled
         {
             get { return WebElement.Enabled; }

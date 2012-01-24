@@ -42,5 +42,35 @@ namespace SeleniumHelperClasses.ElementTypes
         {
             get { return "img"; }
         }
+
+        public string Alt
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("alt");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public string Source
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("src");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

@@ -42,5 +42,20 @@ namespace SeleniumHelperClasses.ElementTypes
         {
             get { return "label"; }
         }
+
+        public string Url
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("href");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

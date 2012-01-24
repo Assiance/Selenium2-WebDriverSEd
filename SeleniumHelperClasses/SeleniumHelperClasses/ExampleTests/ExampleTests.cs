@@ -26,7 +26,12 @@ namespace SeleniumHelperClasses.ExampleTests
         {
             FirefoxProfile profile = new FirefoxProfile();
 
-            //USE YOUR DEFAULT FIREFOX PROFILE!!! by un-commenting this code and commenting out the line above  -- it looks better, but doesnt work on evryones cpu
+            //USE FIREBUG IN FIREFOX PROFILE!!! by un-commenting this code and commenting out the lines below
+            //profile.AddExtension("Your FireBug.xpi Path");
+            //profile.SetPreference("extensions.firebug.currentVersion", "1.8.1");
+            //WebDriver = new FirefoxDriver(profile);
+
+            //USE YOUR DEFAULT FIREFOX PROFILE!!! by un-commenting this code and commenting out the lines above  -- it looks better, but doesnt work on everyones cpu
             //FirefoxProfileManager profileManager = new FirefoxProfileManager();
             //var profiles = profileManager.ExistingProfiles;
             //FirefoxProfile profile = profileManager.GetProfile(profiles.First());
