@@ -10,6 +10,8 @@ using OpenQA.Selenium.Firefox;
 using SeleniumHelperClasses.Entities.Data;
 using SeleniumHelperClasses.ElementTypes;
 using SeleniumHelperClasses.Extensions;
+using OpenQA.Selenium.Support.UI;
+using SeleniumHelperClasses.Entities.Args;
 
 namespace SeleniumHelperClasses.ExampleTests
 {
@@ -51,7 +53,7 @@ namespace SeleniumHelperClasses.ExampleTests
             // click cell 8 on row 4
             aTable.TableBody.Rows[5].Cells[9].Click();
 
-            // clear the field and type Tiger in the first cell that contains Tigere in the first row that contains Cats  
+            // clear the field and type Tiger in the first cell that contains Tigere in the first row that contains Cats 
             aTable.TableBody.Rows.First(i => i.Text == "Cats").Cells.First(i => i.Text == "Tigere").ClearFirstSendKeys("Tiger");
         }
 
@@ -114,6 +116,59 @@ namespace SeleniumHelperClasses.ExampleTests
 
             ElementSe calcButton = new ElementSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate");
             calcButton.Click();
+        }
+
+        [Test]
+        public void WebDriver_Vs_WebDriverSEd()
+        {
+            //The same for both
+            WebDriver.Navigate().GoToUrl("http://www.bankrate.com/calculators/mortgages/loan-calculator.aspx");
+
+            //Initializing******************************************************
+
+            //webDriver
+            //IWebElement pageHolderdivClass = WebDriver.findElement(By.ClassName("pageHolder"));
+            //WebDriverSEd
+            ElementSe pageHolderdivClass = new ElementSe(WebDriver, By.ClassName("pageHolder"));
+
+            //webDriver
+            //IWebElement loanAmount_searchWholePage = WebDriver.findElement(By.Id("ctl00_well_DefaultUC_loanAmount"));
+            //IWebElement loanAmount_searchPageHolderDiv = pageHolderdivClass.findElement(By.Id("ctl00_well_DefaultUC_loanAmount"));
+            //WebDriverSEd
+            ElementSe loanAmount_searchWholePage = new ElementSe(WebDriver, By.Id("ctl00_well_DefaultUC_loanAmount"));
+            ElementSe loanAmount_searchPageHolderDiv = new ElementSe(pageHolderdivClass, By.Id("ctl00_well_DefaultUC_loanAmount"));
+
+            //Sending Keys******************************************************
+
+            //WebDriver
+            // pageHolderdivClass.Clear();
+            // pageHolderdivClass.SendKeys("3000.00");
+            //WebDriverSEd
+            pageHolderdivClass.ClearFirstSendKeys("3000.00");
+
+            // Using a SelectList***************************************************
+
+            //webDriver
+            //IWebElement month = WebDriver.findElement(By.Id("ctl00_well_DefaultUC_LoanMonth"));
+            SelectListSe month = new SelectListSe(WebDriver, By.Id("ctl00_well_DefaultUC_LoanMonth"));
+
+            //WebDriver
+            //SelectElement monthSelect = new SelectElement(month);
+            //Assert.IsTrue(monthSelect.SelectedOption.Text == "Jan");
+            //WebDriverSEd
+            Assert.IsTrue(month.SelectedOption.Text == "Jan");
+
+            //WebDriver
+            //monthSelect.SelectListItem("Aug");
+            //WebDriverSEd
+            month.SelectListItem("Aug");
+
+            // Using LinQ Statements
+            
+            //WebDriver
+            // There isnt a way to do LinQ statements in the webdriver therefore you would have to use the xpath or css selectors to find this element.
+            //WebDriverSEd
+            new ButtonSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate").Click();
         }
 
         [TearDown]
