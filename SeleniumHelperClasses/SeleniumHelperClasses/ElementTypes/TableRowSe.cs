@@ -63,6 +63,11 @@ namespace SeleniumHelperClasses.ElementTypes
 
         private List<TableCellSe> cells = new List<TableCellSe>();
 
+        public override string FinalTag
+        {
+            get { return "tr"; }
+        }
+
         public List<TableCellSe> Cells
         {
             get

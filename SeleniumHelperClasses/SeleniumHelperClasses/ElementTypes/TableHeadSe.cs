@@ -53,6 +53,11 @@ namespace SeleniumHelperClasses.ElementTypes
 
         private List<TableRowSe> rows = new List<TableRowSe>();
 
+        public override string FinalTag
+        {
+            get { return "thead"; }
+        }
+
         public List<TableRowSe> Rows
         {
             get
@@ -84,18 +89,20 @@ namespace SeleniumHelperClasses.ElementTypes
         }
 
 
-        public T GetTableElement<T>(FindRow findRow, string targetCellText, TypeSe ele) where T : ElementSe
+        public T GetTableElement<T>(string targetCellText, FindRow findRow) where T : ElementSe
         {
             TableRowSe row = FindRow(findRow);
             TableCellSe cell = row.Cells.Find(i => i.Text.Contains(targetCellText));
-            ElementSe element = new ElementSe(cell, By.TagName(ele.ToTag()));
+            string tag = new ElementSe(cell).ConvertTo<T>().FinalTag;
+            ElementSe element = new ElementSe(cell, By.TagName(tag));
             return element.ConvertTo<T>();
         }
 
-        public T GetTableElement<T>(FindRow findRow, int targetCell, TypeSe ele) where T : ElementSe
+        public T GetTableElement<T>(int targetCell, FindRow findRow) where T : ElementSe
         {
             TableRowSe row = FindRow(findRow);
-            ElementSe element = new ElementSe(row.Cells[targetCell], By.TagName(ele.ToTag()));
+            string tag = new ElementSe(row).ConvertTo<T>().FinalTag;
+            ElementSe element = new ElementSe(row.Cells[targetCell], By.TagName(tag));
             return element.ConvertTo<T>();
         }
 

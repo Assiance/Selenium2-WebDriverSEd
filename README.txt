@@ -30,6 +30,9 @@ public void Class_Examples()
 
     // clear the field and type Tiger in the first cell that contains Tigere in the first row that contains Cats  
     aTable.TableBody.Rows.First(i => i.Text == "Cats").Cells.First(i => i.Text == "Tigere").ClearFirstSendKeys("Tiger");
+
+    // Gets The First Image in column 4 from the table where row contains "Inactive People" in column 0
+    aTable.TableBody.GetTableElement<ImageSe>(4, new FindRow("Inactive People", 0));
 }
 
 
@@ -82,7 +85,7 @@ public void WebDriver_Vs_WebDriverSEd()
     //***WebDriverSEd
     month.SelectListItem("Aug");
 
-    // Using LinQ Statements
+    // Using LinQ Statements**************************************************
             
     //***WebDriver
     //There isnt a way to do LinQ statements in the webdriver therefore you would have to use the xpath or css selectors to find this element.

@@ -33,6 +33,11 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public override string FinalTag
+        {
+            get { return "table"; }
+        }
+
         public TableSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

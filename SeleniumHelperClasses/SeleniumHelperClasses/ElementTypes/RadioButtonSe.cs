@@ -33,13 +33,18 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public override string FinalTag
+        {
+            get { return "input"; }
+        }
+
         public bool IsChecked
         {
             get
             {
                 try
                 {
-                    if (WebElement.GetAttribute("checked=") == "checked")
+                    if (WebElement.Selected)
                     {
                         return true;
                     }

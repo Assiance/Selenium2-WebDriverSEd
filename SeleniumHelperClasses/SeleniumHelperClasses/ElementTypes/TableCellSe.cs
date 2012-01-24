@@ -34,5 +34,10 @@ namespace SeleniumHelperClasses.ElementTypes
             : base(webElement, by, predicate)
         {
         }
+
+        public override string FinalTag
+        {
+            get { return "td"; }
+        }
     }
 }

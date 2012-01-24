@@ -41,6 +41,11 @@ namespace SeleniumHelperClasses.ElementTypes
             SelectElement = new SelectElement(WebElement);
         }
 
+        public override string FinalTag
+        {
+            get { return "select"; }
+        }
+
         private SelectElement SelectElement { get; set; }
 
         public IList<IWebElement> AllSelectedOptions

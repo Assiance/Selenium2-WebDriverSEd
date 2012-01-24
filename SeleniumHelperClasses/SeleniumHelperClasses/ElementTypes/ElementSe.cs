@@ -175,6 +175,11 @@ namespace SeleniumHelperClasses.ElementTypes
             get { return WebElement.Size; }
         }
 
+        public virtual string FinalTag
+        {
+            get { return string.Empty; }
+        }
+
         public string TagName
         {
             get { return WebElement.TagName; }

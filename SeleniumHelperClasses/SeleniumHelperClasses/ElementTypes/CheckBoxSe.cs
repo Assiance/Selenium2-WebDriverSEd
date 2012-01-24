@@ -35,6 +35,11 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
+        public override string FinalTag
+        {
+            get { return "input"; }
+        }
+
         public bool IsChecked
         {
             get
