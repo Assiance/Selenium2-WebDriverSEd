@@ -73,15 +73,29 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
-        public TableRowSe GetRow(FindRow findRow)
+        public TableRowSe FindRow(FindRow findRow)
         {
             return Rows.Find(i => i.Cells[findRow.KeyColumn].Text.Contains(findRow.Key));
         }
 
-        public T GetTableElement<T>(FindRow findRow, int targetColumn, TypeSe ele) where T : ElementSe
+        public TableRowSe GetRow(int targetRow)
         {
-            TableRowSe row = GetRow(findRow);
-            ElementSe element = new ElementSe(row.Cells[targetColumn], By.TagName(ele.ToTag()));
+            return Rows[targetRow];
+        }
+
+
+        public T GetTableElement<T>(FindRow findRow, string targetCellText, TypeSe ele) where T : ElementSe
+        {
+            TableRowSe row = FindRow(findRow);
+            TableCellSe cell = row.Cells.Find(i => i.Text.Contains(targetCellText));
+            ElementSe element = new ElementSe(cell, By.TagName(ele.ToTag()));
+            return element.ConvertTo<T>();
+        }
+
+        public T GetTableElement<T>(FindRow findRow, int targetCell, TypeSe ele) where T : ElementSe
+        {
+            TableRowSe row = FindRow(findRow);
+            ElementSe element = new ElementSe(row.Cells[targetCell], By.TagName(ele.ToTag()));
             return element.ConvertTo<T>();
         }
 

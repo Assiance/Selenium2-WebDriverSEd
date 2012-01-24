@@ -71,9 +71,14 @@ namespace SeleniumHelperClasses.ElementTypes
             }
         }
 
-        public TableCellSe GetCellFromRow(int valueColumn)
+        public TableCellSe FindCell(string keyText)
         {
-            return Cells[valueColumn];
+            return Cells.Find(i => i.Text.Contains(keyText));
+        }
+
+        public TableCellSe GetCell(int targetCell)
+        {
+            return Cells[targetCell];
         }
 
         private void InitializeCells()
