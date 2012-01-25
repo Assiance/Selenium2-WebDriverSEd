@@ -1,2 +1,2 @@
-nuget pack .\SeleniumHelperClasses\SeleniumHelperClasses\Selenium2WebDriverSEd.csproj -OutputDirectory .\nuget -Build -Prop Configuration=Release
+nuget pack .\Selenium2WebDriverSEd\Selenium2WebDriverSEd\Selenium2WebDriverSEd.csproj -OutputDirectory .\nuget -Build -Prop Configuration=Release
 pause
