@@ -175,6 +175,8 @@ namespace SeleniumHelperClasses.ExampleTests
             //WebDriverSEd
             new ButtonSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate").Click();
 
+            // Table 
+
             //WebDriver
             //It would take a alot of code to do this in the webdriver
             //WebDriverSEd
