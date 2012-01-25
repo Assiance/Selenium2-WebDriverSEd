@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
-    public class SpanSe : ElementSe
+    public class SpanSe : ContainterElement
     {
         public SpanSe(IWebElement webElement)
             : base(webElement)
@@ -38,7 +38,7 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
-        public override string FinalTag
+        public override string ElementTag
         {
             get { return "span"; }
         }

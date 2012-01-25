@@ -190,7 +190,7 @@ namespace SeleniumHelperClasses.ElementTypes
             get { return WebElement.Size; }
         }
 
-        public virtual string FinalTag
+        public virtual string ElementTag
         {
             get { return string.Empty; }
         }

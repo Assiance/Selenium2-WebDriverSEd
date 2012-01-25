@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
-    public class TableCellSe : ElementSe
+    public class TableCellSe : ContainterElement
     {
         public TableCellSe(IWebElement webElement)
             : base(webElement)
@@ -35,7 +35,7 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
-        public override string FinalTag
+        public override string ElementTag
         {
             get { return "td"; }
         }

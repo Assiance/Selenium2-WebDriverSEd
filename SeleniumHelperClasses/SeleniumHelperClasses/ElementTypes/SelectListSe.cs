@@ -41,7 +41,7 @@ namespace SeleniumHelperClasses.ElementTypes
             SelectElement = new SelectElement(WebElement);
         }
 
-        public override string FinalTag
+        public override string ElementTag
         {
             get { return "select"; }
         }

@@ -33,7 +33,7 @@ namespace SeleniumHelperClasses.ElementTypes
         {
         }
 
-        public override string FinalTag
+        public override string ElementTag
         {
             get { return "input"; }
         }

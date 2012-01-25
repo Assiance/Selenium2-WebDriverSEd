@@ -9,7 +9,7 @@ using OpenQA.Selenium;
 
 namespace SeleniumHelperClasses.ElementTypes
 {
-    public class TableRowSe : ElementSe
+    public class TableRowSe : ContainterElement
     {
         public TableRowSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
@@ -63,7 +63,7 @@ namespace SeleniumHelperClasses.ElementTypes
 
         private List<TableCellSe> cells = new List<TableCellSe>();
 
-        public override string FinalTag
+        public override string ElementTag
         {
             get { return "tr"; }
         }

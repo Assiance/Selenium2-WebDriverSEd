@@ -174,6 +174,13 @@ namespace SeleniumHelperClasses.ExampleTests
             // There isnt a way to do LinQ statements in the webdriver therefore you would have to use the xpath or css selectors to find this element.
             //WebDriverSEd
             new ButtonSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate").Click();
+
+            //WebDriver
+            //It would take a alot of code to do this in the webdriver
+            //WebDriverSEd
+            TableSe table = new TableSe(WebDriver, By.Id("savedQueries_table"));
+            ImageSeCollection images = table.TableBody.FindRow(new FindRow("Girls Rule", 0)).Images;
+            images[1].Click();
         }
 
         [TearDown]
