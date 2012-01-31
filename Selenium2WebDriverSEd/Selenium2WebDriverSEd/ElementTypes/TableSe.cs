@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OpenQA.Selenium;
-using WebDriverSEd.ElementTypes;
 
 namespace WebDriverSEd.ElementTypes
 {
@@ -34,11 +33,6 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public override string ElementTag
-        {
-            get { return "table"; }
-        }
-
         public TableSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -50,6 +44,11 @@ namespace WebDriverSEd.ElementTypes
 
             TableBodySe body = new TableBodySe(WebElement, By.TagName("tbody"));
             TableBody = new TableBodySe(body);
+        }
+
+        public override string ElementTag
+        {
+            get { return "table"; }
         }
 
         public TableHeadSe TableHead { get; set; }

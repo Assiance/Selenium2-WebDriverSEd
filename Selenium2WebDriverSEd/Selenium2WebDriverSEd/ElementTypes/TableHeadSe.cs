@@ -5,13 +5,15 @@
  ********************************************************/
 using System;
 using System.Collections.Generic;
-using OpenQA.Selenium;
 using System.Text;
+using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
     public class TableHeadSe : TableElements
     {
+        private string columnTag = "th";
+
         public TableHeadSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -48,8 +50,6 @@ namespace WebDriverSEd.ElementTypes
                 Rows.Add(temp);
             }
         }
-
-        private string columnTag = "th";
 
         public override string ElementTag
         {

@@ -6,7 +6,6 @@
 
 using System;
 using OpenQA.Selenium;
-
 namespace WebDriverSEd.ElementTypes
 {
     public abstract class ControlSe : ElementSe

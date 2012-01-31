@@ -1,4 +1,10 @@
-﻿namespace WebDriverSEd.Entities.Data
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+
+namespace WebDriverSEd.Entities.Data
 {
     public static class ElementType
     {

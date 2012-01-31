@@ -13,6 +13,8 @@ namespace WebDriverSEd.ElementTypes
 {
     public class TableBodySe : TableElements
     {
+        private string columnTag = "td";
+
         public TableBodySe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -49,8 +51,6 @@ namespace WebDriverSEd.ElementTypes
                 Rows.Add(temp);
             }
         }
-
-        private string columnTag = "td";
 
         public override string ElementTag
         {

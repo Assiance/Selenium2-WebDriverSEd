@@ -46,7 +46,7 @@ namespace WebDriverSEd.ExampleTests
 
             SelectListSe selectList = new SelectListSe(WebDriver, By.ClassName("theClassName"));
             
-            selectList.SelectListItem("theOption");
+            selectList.SelectByText("theOption");
 
             bool visible = selectList.IsVisible();
             string theSelectedItem = selectList.SelectedOption.Text;
@@ -87,7 +87,7 @@ namespace WebDriverSEd.ExampleTests
             Assert.IsTrue(month.SelectedOption.Text == "Jan");
 
             // change the selected option to "Aug"
-            month.SelectListItem("Aug");
+            month.SelectByText("Aug");
 
             // ok lets pretend that the calculate button did not have an id and there were more than one button with the classname of "smurf-btn"
             // We can search by using a LinQ statement.
@@ -115,7 +115,7 @@ namespace WebDriverSEd.ExampleTests
             Assert.IsTrue(month.Exists);
             Assert.IsTrue(month.SelectedOption.Text == "Jan");
 
-            month.SelectListItem("Aug");
+            month.SelectByText("Aug");
 
 
             ElementSe calcButton = new ElementSe(WebDriver, By.ClassName("smurf-btn"), i => i.GetAttribute("value") == "Calculate");
@@ -165,7 +165,7 @@ namespace WebDriverSEd.ExampleTests
             //WebDriver
             //monthSelect.SelectListItem("Aug");
             //WebDriverSEd
-            month.SelectListItem("Aug");
+            month.SelectByText("Aug");
 
             // Using LinQ Statements
             

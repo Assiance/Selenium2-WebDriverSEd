@@ -6,8 +6,8 @@
 
 using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using WebDriverSEd.Extensions;
+using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {

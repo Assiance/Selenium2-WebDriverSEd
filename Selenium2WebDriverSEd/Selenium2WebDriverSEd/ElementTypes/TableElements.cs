@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using OpenQA.Selenium;
-using WebDriverSEd.ElementTypes;
 using WebDriverSEd.Entities.Args;
 
 namespace WebDriverSEd.ElementTypes
 {
     public abstract class TableElements : ContainterElement
     {
+        private List<TableRowSe> rows = new List<TableRowSe>();
+
         public TableElements(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -36,8 +38,6 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        protected List<TableRowSe> rows = new List<TableRowSe>();
-
         public override string ElementTag
         {
             get { return "tbody"; }
@@ -51,18 +51,6 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        protected void InitializeRows(string columnTag)
-        {
-            TableRowSeCollection theRows = new TableRowSeCollection(WebElement, By.TagName("tr"));
-
-            foreach (var row in theRows)
-            {
-                TableRowSe temp = new TableRowSe(row, columnTag);
-
-                Rows.Add(temp);
-            }
-        }
-
         public List<TableCellSe> Cells
         {
             get
@@ -73,12 +61,17 @@ namespace WebDriverSEd.ElementTypes
                 {
                     foreach (var cell in row.Cells)
                     {
-                        temp.Add(cell);   
+                        temp.Add(cell);
                     }
                 }
 
                 return temp;
             }
+        }
+
+        public TableRowSe FindRow(string key, int keyColumn)
+        {
+            return Rows.Find(i => i.Cells[keyColumn].Text.Contains(key));
         }
 
         public TableRowSe FindRow(FindRow findRow)
@@ -96,8 +89,7 @@ namespace WebDriverSEd.ElementTypes
             return Rows[targetRow];
         }
 
-
-        public T GetTableElement<T>(string targetCellText, FindRow findRow) where T : ElementSe
+        public T GetTableElement<T>(FindRow findRow, string targetCellText) where T : ElementSe
         {
             TableRowSe row = FindRow(findRow);
             TableCellSe cell = row.Cells.Find(i => i.Text.Contains(targetCellText));
@@ -106,7 +98,7 @@ namespace WebDriverSEd.ElementTypes
             return element.ConvertTo<T>();
         }
 
-        public T GetTableElement<T>(int targetCell, FindRow findRow) where T : ElementSe
+        public T GetTableElement<T>(FindRow findRow, int targetCell) where T : ElementSe
         {
             TableRowSe row = FindRow(findRow);
             string tag = new ElementSe(row).ConvertTo<T>().ElementTag;
@@ -134,6 +126,18 @@ namespace WebDriverSEd.ElementTypes
             }
 
             return tableValues;
+        }
+
+        protected void InitializeRows(string columnTag)
+        {
+            TableRowSeCollection theRows = new TableRowSeCollection(WebElement, By.TagName("tr"));
+
+            foreach (var row in theRows)
+            {
+                TableRowSe temp = new TableRowSe(row, columnTag);
+
+                Rows.Add(temp);
+            }
         }
     }
 }

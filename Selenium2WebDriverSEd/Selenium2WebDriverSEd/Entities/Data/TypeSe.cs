@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+
+using System.Collections.Generic;
 
 namespace WebDriverSEd.Entities.Data
 {
@@ -10,40 +16,40 @@ namespace WebDriverSEd.Entities.Data
 
             ElementTagLookUp = new Dictionary<ElementNames.Name, string>
             {
-                {ElementNames.Name.Button, "input"},
-                {ElementNames.Name.CheckBox, "input"},
-                {ElementNames.Name.Div, "div"},
-                {ElementNames.Name.Image, "img"},
-                {ElementNames.Name.Label, "label"},
-                {ElementNames.Name.Link, "a"},
-                {ElementNames.Name.RadioButton, "input"},
-                {ElementNames.Name.SelectList, "select"},
-                {ElementNames.Name.Span, "span"},
-                {ElementNames.Name.TableBody, "tbody"},
-                {ElementNames.Name.TableCell, "td"},
-                {ElementNames.Name.TableHead, "thead"},
-                {ElementNames.Name.TableRow, "tr"},
-                {ElementNames.Name.Table, "table"},
-                {ElementNames.Name.TextField, "input"},
+                { ElementNames.Name.Button, "input" },
+                { ElementNames.Name.CheckBox, "input" },
+                { ElementNames.Name.Div, "div" },
+                { ElementNames.Name.Image, "img" },
+                { ElementNames.Name.Label, "label" },
+                { ElementNames.Name.Link, "a" },
+                { ElementNames.Name.RadioButton, "input" },
+                { ElementNames.Name.SelectList, "select" },
+                { ElementNames.Name.Span, "span" },
+                { ElementNames.Name.TableBody, "tbody" },
+                { ElementNames.Name.TableCell, "td" },
+                { ElementNames.Name.TableHead, "thead" },
+                { ElementNames.Name.TableRow, "tr" },
+                { ElementNames.Name.Table, "table" },
+                { ElementNames.Name.TextField, "input" },
             };
 
             ElementTypeLookUp = new Dictionary<ElementNames.Name, string>
             {
-                {ElementNames.Name.Button, "button"},
-                {ElementNames.Name.CheckBox, "checkbox"},
-                {ElementNames.Name.Div, string.Empty},
-                {ElementNames.Name.Image, string.Empty},
-                {ElementNames.Name.Label, string.Empty},
-                {ElementNames.Name.Link, string.Empty},
-                {ElementNames.Name.RadioButton, "radio"},
-                {ElementNames.Name.SelectList, string.Empty},
-                {ElementNames.Name.Span, string.Empty},
-                {ElementNames.Name.TableBody, string.Empty},
-                {ElementNames.Name.TableCell, string.Empty},
-                {ElementNames.Name.TableHead, string.Empty},
-                {ElementNames.Name.TableRow, string.Empty},
-                {ElementNames.Name.Table, string.Empty},
-                {ElementNames.Name.TextField, "text"},
+                { ElementNames.Name.Button, "button" },
+                { ElementNames.Name.CheckBox, "checkbox" },
+                { ElementNames.Name.Div, string.Empty },
+                { ElementNames.Name.Image, string.Empty },
+                { ElementNames.Name.Label, string.Empty },
+                { ElementNames.Name.Link, string.Empty },
+                { ElementNames.Name.RadioButton, "radio" },
+                { ElementNames.Name.SelectList, string.Empty },
+                { ElementNames.Name.Span, string.Empty },
+                { ElementNames.Name.TableBody, string.Empty },
+                { ElementNames.Name.TableCell, string.Empty },
+                { ElementNames.Name.TableHead, string.Empty },
+                { ElementNames.Name.TableRow, string.Empty },
+                { ElementNames.Name.Table, string.Empty },
+                { ElementNames.Name.TextField, "text" },
             };
         }
 

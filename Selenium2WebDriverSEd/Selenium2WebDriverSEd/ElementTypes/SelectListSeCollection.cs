@@ -9,39 +9,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using OpenQA.Selenium;
-using WebDriverSEd.ElementTypes;
 
 namespace WebDriverSEd.ElementTypes
 {
     public class SelectListSeCollection : ElementSeCollection
     {
         public SelectListSeCollection()
-        {
-            
+        {           
         }
 
         public SelectListSeCollection(IWebDriver webDriver, By by)
             : base(webDriver, by)
-        {
-            
+        {            
         }
 
         public SelectListSeCollection(IWebElement webElement, By by)
             : base(webElement, by)
         {
-
         }
 
         public SelectListSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
-            :base(webDriver, by, predicate)
+            : base(webDriver, by, predicate)
         {
-
         }
 
         public SelectListSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
-
         }
     }
 }

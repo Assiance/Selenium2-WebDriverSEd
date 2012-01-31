@@ -1,4 +1,10 @@
-﻿namespace WebDriverSEd.Entities.Args
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+
+namespace WebDriverSEd.Entities.Args
 {
     public class FindRow
     {

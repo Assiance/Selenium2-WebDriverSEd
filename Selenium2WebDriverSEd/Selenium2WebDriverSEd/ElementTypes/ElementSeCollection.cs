@@ -7,15 +7,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using OpenQA.Selenium;
 using WebDriverSEd.Extensions;
+using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
     public class ElementSeCollection : IList<ElementSe>
     {
-        public List<ElementSe> Elements { get; set; }
-
         public ElementSeCollection()
         {
             Elements = new List<ElementSe>();
@@ -89,6 +87,24 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
+        public List<ElementSe> Elements { get; set; }
+
+        public int Count
+        {
+            get { return Elements.Count; }
+        }
+
+        public bool IsReadOnly
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public ElementSe this[int index]
+        {
+            get { return Elements[index]; }
+            set { Elements[index] = value; }
+        }
+
         public IEnumerator<ElementSe> GetEnumerator()
         {
             return Elements.GetEnumerator();
@@ -124,16 +140,6 @@ namespace WebDriverSEd.ElementTypes
             return Elements.Remove(item);
         }
 
-        public int Count
-        {
-            get { return Elements.Count; }
-        }
-
-        public bool IsReadOnly
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public int IndexOf(ElementSe item)
         {
             return Elements.IndexOf(item);
@@ -147,12 +153,6 @@ namespace WebDriverSEd.ElementTypes
         public void RemoveAt(int index)
         {
             Elements.RemoveAt(index);
-        }
-
-        public ElementSe this[int index]
-        {
-            get { return Elements[index]; }
-            set { Elements[index] = value; }
         }
     }
 }

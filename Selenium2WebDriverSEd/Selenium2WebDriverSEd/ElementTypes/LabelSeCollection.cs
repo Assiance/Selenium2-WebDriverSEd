@@ -12,32 +12,27 @@ namespace WebDriverSEd.ElementTypes
     public class LabelSeCollection : ElementSeCollection
     {
         public LabelSeCollection()
-        {
-            
+        {           
         }
 
         public LabelSeCollection(IWebDriver webDriver, By by)
             : base(webDriver, by)
-        {
-            
+        {           
         }
 
         public LabelSeCollection(IWebElement webElement, By by)
             : base(webElement, by)
         {
-
         }
 
         public LabelSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
-            :base(webDriver, by, predicate)
+            : base(webDriver, by, predicate)
         {
-
         }
 
         public LabelSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
-
         }
     }
 }

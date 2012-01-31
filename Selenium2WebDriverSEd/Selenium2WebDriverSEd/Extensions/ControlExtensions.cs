@@ -30,11 +30,5 @@ namespace WebDriverSEd.Extensions
 
             return true;
         }
-
-        public static void SelectListItem(this SelectListSe target, string value)
-        {
-            SelectElement selectElement = new SelectElement(target);
-            selectElement.SelectByText(value);
-        }
     }
 }

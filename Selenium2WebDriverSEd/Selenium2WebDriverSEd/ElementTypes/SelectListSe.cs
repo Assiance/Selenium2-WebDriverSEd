@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriverSEd.ElementTypes;
 
 namespace WebDriverSEd.ElementTypes
 {
@@ -47,8 +46,6 @@ namespace WebDriverSEd.ElementTypes
             get { return "select"; }
         }
 
-        private SelectElement SelectElement { get; set; }
-
         public IList<IWebElement> AllSelectedOptions
         {
             get { return SelectElement.AllSelectedOptions; }
@@ -68,6 +65,8 @@ namespace WebDriverSEd.ElementTypes
         {
             get { return SelectElement.SelectedOption; }
         }
+
+        private SelectElement SelectElement { get; set; }
 
         public void DeselectAll()
         {

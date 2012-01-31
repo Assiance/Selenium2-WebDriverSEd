@@ -6,12 +6,13 @@
 using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
-using WebDriverSEd.ElementTypes;
 
 namespace WebDriverSEd.ElementTypes
 {
     public class TableRowSe : ContainterElement
     {
+        private List<TableCellSe> cells = new List<TableCellSe>();
+
         public TableRowSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
@@ -61,8 +62,6 @@ namespace WebDriverSEd.ElementTypes
                 Cells.Add(temp);
             }
         }
-
-        private List<TableCellSe> cells = new List<TableCellSe>();
 
         public override string ElementTag
         {
