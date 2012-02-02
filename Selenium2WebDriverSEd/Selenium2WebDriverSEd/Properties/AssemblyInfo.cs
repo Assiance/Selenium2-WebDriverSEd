@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Selenium WebDriverSEd")]
-[assembly: AssemblyDescription("C# extension that vastly improves upon the WebDriver. It including functions for tables, selectlists, and much more.")]
+[assembly: AssemblyDescription("C# extension that vastly improves upon the WebDriver. It includes functions for tables, selectlists and much more. It is great for converting Watin tests to Selenium because the syntax is very simliar. For more Info and Examples go to https://github.com/Assiance/Selenium2-WebDriverSEd/wiki")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bradford Foxworth-Hill")]
 [assembly: AssemblyProduct("Selenium2WebDriverSEd")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.4")]
-[assembly: AssemblyFileVersion("1.0.0.4")]
+[assembly: AssemblyVersion("1.0.5")]
+[assembly: AssemblyFileVersion("1.0.0.5")]

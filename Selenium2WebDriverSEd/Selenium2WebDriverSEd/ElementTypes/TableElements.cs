@@ -1,11 +1,15 @@
-﻿using System;
+﻿/********************************************************
+ Name: Bradford Foxworth-Hill
+ Email: Brad.Hill@acstechnologies.com
+ Alt Email: Assiance@aol.com
+ ********************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Web;
 using OpenQA.Selenium;
 using WebDriverSEd.Entities.Args;
+using WebDriverSEd.Extensions;
 
 namespace WebDriverSEd.ElementTypes
 {
@@ -104,6 +108,30 @@ namespace WebDriverSEd.ElementTypes
             string tag = new ElementSe(row).ConvertTo<T>().ElementTag;
             ElementSe element = new ElementSe(row.Cells[targetCell], By.TagName(tag));
             return element.ConvertTo<T>();
+        }
+
+        public List<List<string>> GetRowText(TableSe target)
+        {
+            List<List<string>> tableValues = new List<List<string>>();
+
+            TableBodySe body = target.TableBody;
+            List<TableRowSe> rows = body.Rows;
+            foreach (TableRowSe row in rows)
+            {
+                if (row.Style.ToLower() != "none")
+                {
+                    List<string> rowValues = new List<string>();
+                    List<TableCellSe> cells = row.Cells;
+                    foreach (TableCellSe cell in cells)
+                    {
+                        rowValues.Add(cell.Text.RemoveLineBreaks());
+                    }
+
+                    tableValues.Add(rowValues);
+                }
+            }
+
+            return tableValues;
         }
 
         public List<string> GetCommaSeparatedTableRowText()
