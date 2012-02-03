@@ -36,6 +36,11 @@ namespace WebDriverSEd.ElementTypes
         public TableSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
+            if (WebElement == null)
+            {
+                return;
+            }
+
             if (WebElement.Text.Contains("thead"))
             {
                 TableHeadSe head = new TableHeadSe(WebElement, By.TagName("thead"));
