@@ -9,7 +9,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LabelSe : ElementSe
+    public class LabelSe : ContainterElement
     {
         public LabelSe(IWebElement webElement)
             : base(webElement)
@@ -48,6 +48,21 @@ namespace WebDriverSEd.ElementTypes
                 try
                 {
                     return WebElement.GetAttribute("href");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public string For
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("for");
                 }
                 catch (Exception)
                 {

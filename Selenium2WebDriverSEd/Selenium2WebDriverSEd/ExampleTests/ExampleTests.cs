@@ -48,7 +48,7 @@ namespace WebDriverSEd.ExampleTests
             
             selectList.SelectByText("theOption");
 
-            bool visible = selectList.IsVisible();
+            bool visible = selectList.Displayed;
             string theSelectedItem = selectList.SelectedOption.Text;
 
 
@@ -106,9 +106,11 @@ namespace WebDriverSEd.ExampleTests
             WebDriver.Navigate().GoToUrl("http://www.bankrate.com/calculators/mortgages/loan-calculator.aspx");
 
             ElementSe pageHolderdivClass = new ElementSe(WebDriver, By.ClassName("pageHolder"));
-
+            
             ElementSe loanAmount_searchWholePage = new ElementSe(WebDriver, By.Id("ctl00_well_DefaultUC_loanAmount"));
             ElementSe loanAmount_searchPageHolderDiv = new ElementSe(pageHolderdivClass, By.Id("ctl00_well_DefaultUC_loanAmount"));
+
+            //loanAmount_searchPageHolderDiv.Parent();
 
             loanAmount_searchPageHolderDiv.ClearFirstSendKeys("3000.00");
 

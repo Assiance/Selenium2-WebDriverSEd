@@ -15,7 +15,8 @@ namespace WebDriverSEd.ElementTypes
 {
     public abstract class TableElements : ContainterElement
     {
-        private List<TableRowSe> rows = new List<TableRowSe>();
+        private List<TableRowSe> _rows = new List<TableRowSe>();
+        private List<TableCellSe> _cells = new List<TableCellSe>();
 
         public TableElements(IWebDriver webDriver, By by)
             : base(webDriver, by)
@@ -37,9 +38,25 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public TableElements(IWebElement body)
+        public TableElements(IWebElement body, string columnTag)
             : base(body)
         {
+            TableRowSeCollection theRows = new TableRowSeCollection(WebElement, By.TagName(columnTag));
+
+            foreach (var row in theRows)
+            {
+                TableRowSe temp = new TableRowSe(row, columnTag);
+
+                _rows.Add(temp);
+            }
+
+            foreach (var row in _rows)
+            {
+                foreach (var cell in row.Cells)
+                {
+                    _cells.Add(cell);
+                }
+            }
         }
 
         public override string ElementTag
@@ -51,7 +68,7 @@ namespace WebDriverSEd.ElementTypes
         {
             get
             {
-                return rows;
+                return _rows;
             }
         }
 
@@ -59,17 +76,7 @@ namespace WebDriverSEd.ElementTypes
         {
             get
             {
-                List<TableCellSe> temp = new List<TableCellSe>();
-
-                foreach (var row in Rows)
-                {
-                    foreach (var cell in row.Cells)
-                    {
-                        temp.Add(cell);
-                    }
-                }
-
-                return temp;
+                return _cells;
             }
         }
 
@@ -156,15 +163,63 @@ namespace WebDriverSEd.ElementTypes
             return tableValues;
         }
 
-        protected void InitializeRows(string columnTag)
+        public List<string> GetAllValuesFromColumn(int columnIndex)
+        {
+            List<string> values = new List<string>();
+
+            foreach (var row in Rows)
+            {
+                if (row.Style.ToLower() != "none")
+                {
+                    TableCellSe cell = row.Cells[columnIndex];
+                    if (!string.IsNullOrEmpty(cell.Text))
+                    {
+                        values.Add(cell.Text);
+                    }
+                }
+            }
+
+            return values;
+        }
+
+        public List<string> GetAllValuesFromColumn(int columnIndex, string className)
+        {
+            List<string> values = new List<string>();
+
+            foreach (var row in Rows)
+            {
+                if (row.Style.ToLower() != "none")
+                {
+                    TableCellSe cell = row.Cells[columnIndex];
+                    ElementSe element = cell.Div(e => e.ClassName == className).ConvertTo<ElementSe>();
+                    if (element.Exists)
+                    {
+                        string s = element.Text;
+                        if (!string.IsNullOrEmpty(s))
+                        {
+                            values.Add(s);
+                        }
+                    }
+                }
+            }
+
+            return values;
+        }
+
+        protected void InitializeRowsandCells(string columnTag)
         {
             TableRowSeCollection theRows = new TableRowSeCollection(WebElement, By.TagName("tr"));
-
             foreach (var row in theRows)
             {
-                TableRowSe temp = new TableRowSe(row, columnTag);
+                _rows.Add(new TableRowSe(row, columnTag));
+            }
 
-                Rows.Add(temp);
+            foreach (var row in _rows)
+            {
+                foreach (var cell in row.Cells)
+                {
+                    _cells.Add(cell);
+                }
             }
         }
     }

@@ -20,25 +20,37 @@ namespace WebDriverSEd.ElementTypes
         public SelectListSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
-            SelectElement = new SelectElement(WebElement);
+            if (WebElement != null)
+            {
+                SelectElement = new SelectElement(WebElement);
+            }
         }
 
         public SelectListSe(IWebElement webElement, By by)
             : base(webElement, by)
         {
-            SelectElement = new SelectElement(WebElement);
+            if (WebElement != null)
+            {
+                SelectElement = new SelectElement(WebElement);
+            }
         }
 
         public SelectListSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
             : base(webDriver, by, predicate)
         {
-            SelectElement = new SelectElement(WebElement);
+            if (WebElement != null)
+            {
+                SelectElement = new SelectElement(WebElement);
+            }
         }
 
         public SelectListSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
-            SelectElement = new SelectElement(WebElement);
+            if (WebElement != null)
+            {
+                SelectElement = new SelectElement(WebElement);
+            }
         }
 
         public override string ElementTag
@@ -80,11 +92,21 @@ namespace WebDriverSEd.ElementTypes
 
         public void DeselectByText(string text)
         {
+            if (text == null)
+            {
+                text = string.Empty;
+            }
+
             SelectElement.DeselectByText(text);
         }
 
         public void DeselectByValue(string value)
         {
+            if (value == null)
+            {
+                value = string.Empty;
+            }
+
             SelectElement.DeselectByValue(value);
         }
 
@@ -95,11 +117,21 @@ namespace WebDriverSEd.ElementTypes
 
         public void SelectByText(string text)
         {
+            if (text == null)
+            {
+                text = string.Empty;
+            }
+
             SelectElement.SelectByText(text);
         }
 
         public void SelectByValue(string value)
         {
+            if (value == null)
+            {
+                value = string.Empty;
+            }
+
             SelectElement.SelectByValue(value);
         }
     }

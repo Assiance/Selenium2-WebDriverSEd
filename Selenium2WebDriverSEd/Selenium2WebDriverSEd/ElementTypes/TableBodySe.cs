@@ -13,43 +13,35 @@ namespace WebDriverSEd.ElementTypes
 {
     public class TableBodySe : TableElements
     {
-        private string columnTag = "td";
+        private static string columnTag = "td";
 
         public TableBodySe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {
-            InitializeRows(columnTag);
+            InitializeRowsandCells(columnTag);
         }
 
         public TableBodySe(IWebElement webElement, By by)
             : base(webElement, by)
         {
-            InitializeRows(columnTag);
+            InitializeRowsandCells(columnTag);
         }
 
         public TableBodySe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
             : base(webDriver, by, predicate)
         {
-            InitializeRows(columnTag);
+            InitializeRowsandCells(columnTag);
         }
 
         public TableBodySe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
-            InitializeRows(columnTag);
+            InitializeRowsandCells(columnTag);
         }
 
         public TableBodySe(IWebElement body)
-            : base(body)
+            : base(body, columnTag)
         {
-            TableRowSeCollection theRows = new TableRowSeCollection(body, By.TagName("tr"));
-
-            foreach (var row in theRows)
-            {
-                TableRowSe temp = new TableRowSe(row, columnTag);
-
-                Rows.Add(temp);
-            }
         }
 
         public override string ElementTag

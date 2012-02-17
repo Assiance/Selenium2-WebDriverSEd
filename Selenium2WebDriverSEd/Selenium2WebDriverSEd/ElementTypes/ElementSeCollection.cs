@@ -125,6 +125,16 @@ namespace WebDriverSEd.ElementTypes
             Elements.Clear();
         }
 
+        public ElementSe Find(Predicate<ElementSe> match)
+        {
+            return Elements.Find(match);
+        }
+
+        public List<ElementSe> FindAll(Predicate<ElementSe> match)
+        {
+            return Elements.FindAll(match);
+        }
+
         public bool Contains(ElementSe item)
         {
             return Elements.Contains(item);

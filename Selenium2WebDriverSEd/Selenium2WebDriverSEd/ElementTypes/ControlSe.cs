@@ -10,6 +10,11 @@ namespace WebDriverSEd.ElementTypes
 {
     public abstract class ControlSe : ElementSe
     {
+        public ControlSe(IWebElement webElement)
+            : base(webElement)
+        {
+        }
+
         public ControlSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
         {

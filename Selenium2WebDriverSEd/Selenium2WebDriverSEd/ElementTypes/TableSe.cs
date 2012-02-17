@@ -43,12 +43,10 @@ namespace WebDriverSEd.ElementTypes
 
             if (WebElement.Text.Contains("thead"))
             {
-                TableHeadSe head = new TableHeadSe(WebElement, By.TagName("thead"));
-                TableHead = new TableHeadSe(head);
+                TableHead = new TableHeadSe(WebElement, By.TagName("thead"));
             }
 
-            TableBodySe body = new TableBodySe(WebElement, By.TagName("tbody"));
-            TableBody = new TableBodySe(body);
+            TableBody = new TableBodySe(WebElement, By.TagName("tbody"));
         }
 
         public override string ElementTag

@@ -6,6 +6,7 @@
 
 using System;
 using NUnit.Framework;
+using OpenQA.Selenium.Internal;
 using WebDriverSEd.Extensions;
 using OpenQA.Selenium;
 
@@ -20,6 +21,15 @@ namespace WebDriverSEd.ElementTypes
         public ElementSe(IWebElement webElement)
         {
             WebElement = webElement;
+            try
+            {
+                InitializeJavaScriptExecutor();
+            }
+            catch (Exception)
+            {
+                ElementsWebDriver = null;
+                JavaScriptExecuter = null;
+            }
         }
 
         public ElementSe(IWebDriver webDriver, By by)
@@ -27,6 +37,15 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webDriver.FindElement(by);
+                try
+                {
+                    InitializeJavaScriptExecutor();
+                }
+                catch (Exception)
+                {
+                    ElementsWebDriver = null;
+                    JavaScriptExecuter = null;
+                }
             }
             catch (NoSuchElementException)
             {
@@ -38,6 +57,15 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webElement.FindElement(by);
+                try
+                {
+                    InitializeJavaScriptExecutor();
+                }
+                catch (Exception)
+                {
+                    ElementsWebDriver = null;
+                    JavaScriptExecuter = null;
+                }
             }
             catch (NoSuchElementException)
             {
@@ -49,6 +77,15 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webDriver.FindElement(by, predicate);
+                try
+                {
+                    InitializeJavaScriptExecutor();
+                }
+                catch (Exception)
+                {
+                    ElementsWebDriver = null;
+                    JavaScriptExecuter = null;
+                }
             }
             catch (NoSuchElementException)
             {
@@ -60,6 +97,15 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webElement.FindElement(by, predicate);
+                try
+                {
+                    InitializeJavaScriptExecutor();
+                }
+                catch (Exception)
+                {
+                    ElementsWebDriver = null;
+                    JavaScriptExecuter = null;
+                }
             }
             catch (NoSuchElementException)
             {
@@ -67,7 +113,7 @@ namespace WebDriverSEd.ElementTypes
         }
 
         public IWebElement WebElement { get; set; }
-
+        
         public bool Displayed
         {
             get { return WebElement.Displayed; }
@@ -102,6 +148,21 @@ namespace WebDriverSEd.ElementTypes
                 try
                 {
                     return WebElement.GetAttribute("class");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("name");
                 }
                 catch (Exception)
                 {
@@ -155,6 +216,21 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
+        public string Type
+        {
+            get
+            {
+                try
+                {
+                    return WebElement.GetAttribute("type");
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
         public string Title
         {
             get
@@ -167,6 +243,38 @@ namespace WebDriverSEd.ElementTypes
                 {
                     return null;
                 }
+            }
+        }
+
+        public ElementSe Parent
+        {
+            get
+            {
+                return new ElementSe(WebElement, By.XPath("./parent::*"));
+            } 
+        }
+
+        public ElementSe Child
+        {
+            get
+            {
+                return new ElementSe(WebElement, By.XPath("./child::*"));
+            }
+        }
+
+         public ElementSe PreviousSibling
+        {
+            get
+            {
+                return new ElementSe(WebElement, By.XPath("./preceding-sibling::*"));
+            }
+        }
+
+        public ElementSe NextSibling
+        {
+            get
+            {
+                return new ElementSe(WebElement, By.XPath("./following-sibling::*"));
             }
         }
 
@@ -215,11 +323,34 @@ namespace WebDriverSEd.ElementTypes
              }
         }
 
+        private IJavaScriptExecutor JavaScriptExecuter { get; set; }
+        private IWebDriver ElementsWebDriver { get; set; }
+
+        public void ExecuteScript(string script, params object[] args)
+        {
+            JavaScriptExecuter.ExecuteScript(script, args);
+        }
+
+        public void ExecuteAsyncScript(string script, params object[] args)
+        {
+            JavaScriptExecuter.ExecuteAsyncScript(script, args);
+        }
+
         public T ConvertTo<T>() where T : ElementSe
         {
             var instance = Activator.CreateInstance(typeof(T), new object[] { WebElement }) as T;
 
             return instance;
+        }
+
+        public void Focus()
+        {
+            JavaScriptExecuter.ExecuteScript("arguments[0].focus();", WebElement);
+        }
+
+        public ElementSe FindElementSe(By by)
+        {
+            return new ElementSe(WebElement.FindElement(by));
         }
 
         public IWebElement FindElement(By by)
@@ -286,6 +417,13 @@ namespace WebDriverSEd.ElementTypes
                 Assert.That(!Exists, "The {0} exists and it should not.", elementLabel);
                 return false;
             }
+        }
+
+        private void InitializeJavaScriptExecutor()
+        {
+            var wrappedElement = (IWrapsDriver)WebElement;
+            ElementsWebDriver = wrappedElement.WrappedDriver;
+            JavaScriptExecuter = (IJavaScriptExecutor)ElementsWebDriver;
         }
     }
 }

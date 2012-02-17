@@ -41,12 +41,9 @@ namespace WebDriverSEd.ElementTypes
             : base(row)
         {
             TableCellSeCollection theCells = new TableCellSeCollection(row, By.TagName(rowTag));
-
             foreach (var cell in theCells)
             {
-                TableCellSe temp = new TableCellSe(cell);
-
-                Cells.Add(temp);
+                Cells.Add(new TableCellSe(cell));
             }
         }
 
@@ -57,9 +54,7 @@ namespace WebDriverSEd.ElementTypes
 
             foreach (var cell in theCells)
             {
-                TableCellSe temp = new TableCellSe(cell);
-
-                Cells.Add(temp);
+                Cells.Add(new TableCellSe(cell));
             }
         }
 
