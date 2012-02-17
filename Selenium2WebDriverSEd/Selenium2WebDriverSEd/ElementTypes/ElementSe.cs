@@ -262,13 +262,13 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-         public ElementSe PreviousSibling
-        {
-            get
-            {
-                return new ElementSe(WebElement, By.XPath("./preceding-sibling::*"));
-            }
-        }
+        // public ElementSe PreviousSibling
+        //{
+        //    get
+        //    {
+        //        return new ElementSe(WebElement, By.XPath("./preceding-sibling::*"));
+        //    }
+        //}
 
         public ElementSe NextSibling
         {
