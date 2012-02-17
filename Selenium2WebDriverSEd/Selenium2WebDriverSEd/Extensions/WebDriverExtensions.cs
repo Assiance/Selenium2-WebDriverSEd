@@ -10,9 +10,5 @@ namespace WebDriverSEd.Extensions
 {
     public static class WebDriverExtensions
     {
-        public static IJavaScriptExecutor GetJavaScriptExecutor(this IWebDriver webDriver)
-        {
-            return (IJavaScriptExecutor)webDriver;
-        }
     }
 }
