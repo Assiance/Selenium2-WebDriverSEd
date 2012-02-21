@@ -135,6 +135,11 @@ namespace WebDriverSEd.ElementTypes
             return Elements.FindAll(match);
         }
 
+        public void ForEach(Action<ElementSe> action)
+        {
+            Elements.ForEach(action);
+        }
+
         public bool Contains(ElementSe item)
         {
             return Elements.Contains(item);
