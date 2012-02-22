@@ -21,15 +21,7 @@ namespace WebDriverSEd.ElementTypes
         public ElementSe(IWebElement webElement)
         {
             WebElement = webElement;
-            try
-            {
-                InitializeJavaScriptExecutor();
-            }
-            catch (Exception)
-            {
-                ElementsWebDriver = null;
-                JavaScriptExecuter = null;
-            }
+            InitializeJavaScriptExecutor();
         }
 
         public ElementSe(IWebDriver webDriver, By by)
@@ -37,15 +29,7 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webDriver.FindElement(by);
-                try
-                {
-                    InitializeJavaScriptExecutor();
-                }
-                catch (Exception)
-                {
-                    ElementsWebDriver = null;
-                    JavaScriptExecuter = null;
-                }
+                InitializeJavaScriptExecutor();
             }
             catch (NoSuchElementException)
             {
@@ -57,15 +41,7 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webElement.FindElement(by);
-                try
-                {
-                    InitializeJavaScriptExecutor();
-                }
-                catch (Exception)
-                {
-                    ElementsWebDriver = null;
-                    JavaScriptExecuter = null;
-                }
+                InitializeJavaScriptExecutor();
             }
             catch (NoSuchElementException)
             {
@@ -77,15 +53,7 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webDriver.FindElement(by, predicate);
-                try
-                {
-                    InitializeJavaScriptExecutor();
-                }
-                catch (Exception)
-                {
-                    ElementsWebDriver = null;
-                    JavaScriptExecuter = null;
-                }
+                InitializeJavaScriptExecutor();
             }
             catch (NoSuchElementException)
             {
@@ -97,15 +65,7 @@ namespace WebDriverSEd.ElementTypes
             try
             {
                 WebElement = webElement.FindElement(by, predicate);
-                try
-                {
-                    InitializeJavaScriptExecutor();
-                }
-                catch (Exception)
-                {
-                    ElementsWebDriver = null;
-                    JavaScriptExecuter = null;
-                }
+                InitializeJavaScriptExecutor();
             }
             catch (NoSuchElementException)
             {
@@ -324,7 +284,7 @@ namespace WebDriverSEd.ElementTypes
         }
 
         private IJavaScriptExecutor JavaScriptExecuter { get; set; }
-        private IWebDriver ElementsWebDriver { get; set; }
+        protected IWebDriver ElementsWebDriver { get; set; }
 
         public void ExecuteScript(string script, params object[] args)
         {
@@ -421,9 +381,17 @@ namespace WebDriverSEd.ElementTypes
 
         private void InitializeJavaScriptExecutor()
         {
-            var wrappedElement = (IWrapsDriver)WebElement;
-            ElementsWebDriver = wrappedElement.WrappedDriver;
-            JavaScriptExecuter = (IJavaScriptExecutor)ElementsWebDriver;
+            try
+            {
+                var wrappedElement = (IWrapsDriver)WebElement;
+                ElementsWebDriver = wrappedElement.WrappedDriver;
+                JavaScriptExecuter = (IJavaScriptExecutor)ElementsWebDriver;
+            }
+            catch (Exception)
+            {
+                ElementsWebDriver = null;
+                JavaScriptExecuter = null;
+            }
         }
     }
 }

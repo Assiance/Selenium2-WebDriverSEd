@@ -13,6 +13,7 @@ namespace WebDriverSEd.ElementTypes
         public ControlSe(IWebElement webElement)
             : base(webElement)
         {
+            WebDriver = ElementsWebDriver;
         }
 
         public ControlSe(IWebDriver webDriver, By by)
@@ -23,6 +24,7 @@ namespace WebDriverSEd.ElementTypes
         public ControlSe(IWebElement webElement, By by)
             : base(webElement, by)
         {
+            WebDriver = ElementsWebDriver;
         }
 
         public ControlSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
@@ -33,8 +35,9 @@ namespace WebDriverSEd.ElementTypes
         public ControlSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
             : base(webElement, by, predicate)
         {
+            WebDriver = ElementsWebDriver;
         }
 
-        public IWebDriver WebDriver { get; set; }
+        protected IWebDriver WebDriver { get; set; }
     }
 }

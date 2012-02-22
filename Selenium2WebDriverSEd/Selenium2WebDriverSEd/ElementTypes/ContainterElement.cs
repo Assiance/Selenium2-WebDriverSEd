@@ -166,57 +166,134 @@ namespace WebDriverSEd.ElementTypes
 
         public ButtonSe Button(Predicate<ElementSe> predicate)
         {
-            return Buttons.Elements.Find(predicate).ConvertTo<ButtonSe>();
+            try
+            {
+                return Buttons.Elements.Find(predicate).ConvertTo<ButtonSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public CheckBoxSe CheckBox(Predicate<ElementSe> predicate)
         {
-            return CheckBoxes.Elements.Find(predicate).ConvertTo<CheckBoxSe>();
+            try
+            {
+                return CheckBoxes.Elements.Find(predicate).ConvertTo<CheckBoxSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public DivSe Div(Predicate<ElementSe> predicate)
         {
-            return Divs.Elements.Find(predicate).ConvertTo<DivSe>();
+            try
+            {
+                return Divs.Elements.Find(predicate).ConvertTo<DivSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public ImageSe Image(Predicate<ElementSe> predicate)
         {
-            return Images.Elements.Find(predicate).ConvertTo<ImageSe>();
+            try
+            {
+                return Images.Elements.Find(predicate).ConvertTo<ImageSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public LabelSe Label(Predicate<ElementSe> predicate)
         {
-            return Labels.Elements.Find(predicate).ConvertTo<LabelSe>();
+            try
+            {
+                return Labels.Elements.Find(predicate).ConvertTo<LabelSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public LinkSe Link(Predicate<ElementSe> predicate)
         {
-            return Links.Elements.Find(predicate).ConvertTo<LinkSe>();
+            try
+            {
+                return Links.Elements.Find(predicate).ConvertTo<LinkSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public RadioButtonSe RadioButton(Predicate<ElementSe> predicate)
         {
-            return RadioButtons.Elements.Find(predicate).ConvertTo<RadioButtonSe>();
+            try
+            {
+                return RadioButtons.Elements.Find(predicate).ConvertTo<RadioButtonSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public SelectListSe SelectList(Predicate<ElementSe> predicate)
         {
-            return SelectLists.Elements.Find(predicate).ConvertTo<SelectListSe>();
+            try
+            {
+                return SelectLists.Elements.Find(predicate).ConvertTo<SelectListSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public SpanSe Span(Predicate<ElementSe> predicate)
         {
-            return Spans.Elements.Find(predicate).ConvertTo<SpanSe>();
+            try
+            {
+                return Spans.Elements.Find(predicate).ConvertTo<SpanSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public TableSe Table(Predicate<ElementSe> predicate)
         {
-            return Tables.Elements.Find(predicate).ConvertTo<TableSe>();
+            try
+            {
+                return Tables.Elements.Find(predicate).ConvertTo<TableSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public TextFieldSe TextField(Predicate<ElementSe> predicate)
-        {          
-            return TextFields.Elements.Find(predicate).ConvertTo<TextFieldSe>();
+        {
+            try
+            {
+                return TextFields.Elements.Find(predicate).ConvertTo<TextFieldSe>();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
