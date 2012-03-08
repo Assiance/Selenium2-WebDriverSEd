@@ -57,5 +57,17 @@ namespace WebDriverSEd.ElementTypes
                 }
             }
         }
+
+        public void SetChecked(bool theValue)
+        {
+            if (theValue && !IsChecked)
+            {
+                WebElement.Click();
+            }
+            else if (!theValue && IsChecked)
+            {
+                WebElement.Click();
+            }
+        }
     }
 }

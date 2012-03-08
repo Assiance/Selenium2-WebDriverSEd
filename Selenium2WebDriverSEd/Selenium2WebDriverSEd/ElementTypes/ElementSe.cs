@@ -308,6 +308,11 @@ namespace WebDriverSEd.ElementTypes
             JavaScriptExecuter.ExecuteScript("arguments[0].focus();", WebElement);
         }
 
+        public void Blur()
+        {
+            JavaScriptExecuter.ExecuteScript("arguments[0].blur();", WebElement);
+        }
+
         public ElementSe FindElementSe(By by)
         {
             return new ElementSe(WebElement.FindElement(by));
@@ -345,11 +350,21 @@ namespace WebDriverSEd.ElementTypes
 
         public void SendKeys(string text)
         {
+            if (text == null)
+            {
+                text = string.Empty;
+            }
+
             WebElement.SendKeys(text);
         }
 
         public void ClearFirstSendKeys(string text)
         {
+            if (text == null)
+            {
+                text = string.Empty;
+            }
+
             WebElement.Clear();
             WebElement.SendKeys(text);
         }

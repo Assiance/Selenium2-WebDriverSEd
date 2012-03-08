@@ -80,6 +80,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
+        public TableRowSe FindRow(string key)
+        {
+            return Rows.Find(i => i.Text.RemoveLineBreaks().Contains(key));
+        }
+
         public TableRowSe FindRow(string key, int keyColumn)
         {
             return Rows.Find(i => i.Cells[keyColumn].Text.Contains(key));
@@ -117,13 +122,11 @@ namespace WebDriverSEd.ElementTypes
             return element.ConvertTo<T>();
         }
 
-        public List<List<string>> GetRowText(TableSe target)
+        public List<List<string>> GetRowText()
         {
             List<List<string>> tableValues = new List<List<string>>();
 
-            TableBodySe body = target.TableBody;
-            List<TableRowSe> rows = body.Rows;
-            foreach (TableRowSe row in rows)
+            foreach (TableRowSe row in Rows)
             {
                 if (row.Style.ToLower() != "none")
                 {

@@ -35,6 +35,14 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
+        public ElementSeCollection Elements
+        {
+            get
+            {
+                return new ElementSeCollection(WebElement, By.CssSelector("*"));
+            }
+        }
+
         public ButtonSeCollection Buttons
         {
             get
@@ -161,6 +169,18 @@ namespace WebDriverSEd.ElementTypes
             get
             {
                 return new TextFieldSeCollection(WebElement, By.TagName("input"), i => i.GetAttribute("type") == "text");
+            }
+        }
+
+        public ElementSe Element(Predicate<ElementSe> predicate)
+        {
+            try
+            {
+                return Elements.Elements.Find(predicate);
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

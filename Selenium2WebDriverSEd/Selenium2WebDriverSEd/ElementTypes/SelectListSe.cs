@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using WebDriverSEd.Extensions;
 
 namespace WebDriverSEd.ElementTypes
 {
@@ -92,22 +93,18 @@ namespace WebDriverSEd.ElementTypes
 
         public void DeselectByText(string text)
         {
-            if (text == null)
+            if (!text.IsNullOrEmpty())
             {
-                text = string.Empty;
+                SelectElement.DeselectByText(text);
             }
-
-            SelectElement.DeselectByText(text);
         }
 
         public void DeselectByValue(string value)
         {
-            if (value == null)
+            if (!value.IsNullOrEmpty())
             {
-                value = string.Empty;
+                SelectElement.DeselectByValue(value);
             }
-
-            SelectElement.DeselectByValue(value);
         }
 
         public void SelectByIndex(int index)
@@ -117,22 +114,18 @@ namespace WebDriverSEd.ElementTypes
 
         public void SelectByText(string text)
         {
-            if (text == null)
+            if (!text.IsNullOrEmpty())
             {
-                text = string.Empty;
+                SelectElement.SelectByText(text);
             }
-
-            SelectElement.SelectByText(text);
         }
 
         public void SelectByValue(string value)
         {
-            if (value == null)
+            if (!value.IsNullOrEmpty())
             {
-                value = string.Empty;
+                SelectElement.SelectByValue(value);
             }
-
-            SelectElement.SelectByValue(value);
         }
     }
 }

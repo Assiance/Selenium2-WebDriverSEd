@@ -4,6 +4,7 @@
  Alt Email: Assiance@aol.com
  ********************************************************/
 
+using System.Drawing;
 using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
