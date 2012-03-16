@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class RadioButtonSe : ElementSe
+    public class RadioButtonSe : BaseElementSe
     {
         public RadioButtonSe(IWebElement webElement)
             : base(webElement)

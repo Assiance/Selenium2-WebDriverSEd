@@ -8,7 +8,7 @@ using System;
 using OpenQA.Selenium;
 namespace WebDriverSEd.ElementTypes
 {
-    public abstract class ControlSe : ElementSe
+    public abstract class ControlSe : BaseElementSe
     {
         public ControlSe(IWebElement webElement)
             : base(webElement)

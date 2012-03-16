@@ -105,7 +105,7 @@ namespace WebDriverSEd.ElementTypes
             return Rows[targetRow];
         }
 
-        public T GetTableElement<T>(FindRow findRow, string targetCellText) where T : ElementSe
+        public T GetTableElement<T>(FindRow findRow, string targetCellText) where T : BaseElementSe
         {
             TableRowSe row = FindRow(findRow);
             TableCellSe cell = row.Cells.Find(i => i.Text.Contains(targetCellText));
@@ -114,7 +114,7 @@ namespace WebDriverSEd.ElementTypes
             return element.ConvertTo<T>();
         }
 
-        public T GetTableElement<T>(FindRow findRow, int targetCell) where T : ElementSe
+        public T GetTableElement<T>(FindRow findRow, int targetCell) where T : BaseElementSe
         {
             TableRowSe row = FindRow(findRow);
             string tag = new ElementSe(row).ConvertTo<T>().ElementTag;

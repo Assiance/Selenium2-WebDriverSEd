@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LinkSe : ElementSe
+    public class LinkSe : BaseElementSe
     {
         public LinkSe(IWebElement webElement)
             : base(webElement)

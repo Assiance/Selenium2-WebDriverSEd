@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TextFieldSe : ElementSe
+    public class TextFieldSe : BaseElementSe
     {
         public TextFieldSe(IWebElement webElement)
             : base(webElement)

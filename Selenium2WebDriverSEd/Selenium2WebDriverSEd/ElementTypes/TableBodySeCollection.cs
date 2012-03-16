@@ -8,34 +8,79 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebDriverSEd.Extensions;
 using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TableBodySeCollection : ElementSeCollection
+    public class TableBodySeCollection : List<TableBodySe>
     {
         public TableBodySeCollection()
-        {           
+        {
         }
 
         public TableBodySeCollection(IWebDriver webDriver, By by)
-            : base(webDriver, by)
-        {            
+        { 
+            try
+            {
+                var tempElements = webDriver.FindElements(by);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new TableBodySe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public TableBodySeCollection(IWebElement webElement, By by)
-            : base(webElement, by)
         {
+            try
+            {
+                var tempElements = webElement.FindElements(by);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new TableBodySe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public TableBodySeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
-            : base(webDriver, by, predicate)
         {
+            try
+            {
+                var tempElements = webDriver.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new TableBodySe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public TableBodySeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
-            : base(webElement, by, predicate)
         {
+            try
+            {
+                var tempElements = webElement.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new TableBodySe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
     }
 }

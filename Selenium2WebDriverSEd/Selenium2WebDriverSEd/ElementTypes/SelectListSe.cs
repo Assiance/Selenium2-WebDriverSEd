@@ -11,7 +11,7 @@ using WebDriverSEd.Extensions;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class SelectListSe : ElementSe
+    public class SelectListSe : BaseElementSe
     {
         public SelectListSe(IWebElement webElement)
             : base(webElement)

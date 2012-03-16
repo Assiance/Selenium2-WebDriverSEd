@@ -5,34 +5,80 @@
  ********************************************************/
 
 using System;
+using System.Collections.Generic;
+using WebDriverSEd.Extensions;
 using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class ImageSeCollection : ElementSeCollection
+    public class ImageSeCollection : List<ImageSe>
     {
         public ImageSeCollection()
-        {            
+        {
         }
 
         public ImageSeCollection(IWebDriver webDriver, By by)
-            : base(webDriver, by)
-        {           
+        { 
+            try
+            {
+                var tempElements = webDriver.FindElements(by);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new ImageSe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ImageSeCollection(IWebElement webElement, By by)
-            : base(webElement, by)
         {
+            try
+            {
+                var tempElements = webElement.FindElements(by);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new ImageSe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ImageSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
-            : base(webDriver, by, predicate)
         {
+            try
+            {
+                var tempElements = webDriver.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new ImageSe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
 
         public ImageSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
-            : base(webElement, by, predicate)
         {
+            try
+            {
+                var tempElements = webElement.FindElements(by, predicate);
+
+                foreach (IWebElement element in tempElements)
+                {
+                    this.Add(new ImageSe(element));
+                }
+            }
+            catch (NoSuchElementException)
+            {
+            }
         }
     }
 }

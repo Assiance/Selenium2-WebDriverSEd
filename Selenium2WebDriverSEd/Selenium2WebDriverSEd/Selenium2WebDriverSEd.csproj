@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ElementTypes\ContainterElement.cs" />
+    <Compile Include="ElementTypes\ElementSe.cs" />
     <Compile Include="ElementTypes\TableElements.cs" />
     <Compile Include="Entities\Data\ElementNames.cs" />
     <Compile Include="Entities\Data\ElementType.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="ElementTypes\ControlSe.cs" />
     <Compile Include="ElementTypes\DivSe.cs" />
     <Compile Include="ElementTypes\DivSeCollection.cs" />
-    <Compile Include="ElementTypes\ElementSe.cs" />
+    <Compile Include="ElementTypes\BaseElementSe.cs" />
     <Compile Include="ElementTypes\ElementSeCollection.cs" />
     <Compile Include="ElementTypes\ImageSe.cs" />
     <Compile Include="ElementTypes\ImageSeCollection.cs" />

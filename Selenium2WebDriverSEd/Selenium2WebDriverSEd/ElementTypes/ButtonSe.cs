@@ -8,7 +8,7 @@ using System;
 using OpenQA.Selenium;
 namespace WebDriverSEd.ElementTypes
 {
-    public class ButtonSe : ElementSe
+    public class ButtonSe : BaseElementSe
     {
         public ButtonSe(IWebElement webElement)
             : base(webElement)

@@ -8,7 +8,7 @@ using System;
 using OpenQA.Selenium;
 namespace WebDriverSEd.ElementTypes
 {
-    public class CheckBoxSe : ElementSe
+    public class CheckBoxSe : BaseElementSe
     {
         public CheckBoxSe(IWebElement webElement)
             : base(webElement)

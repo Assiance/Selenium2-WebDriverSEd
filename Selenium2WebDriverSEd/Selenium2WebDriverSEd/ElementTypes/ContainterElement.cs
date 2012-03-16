@@ -8,7 +8,7 @@ using System;
 using OpenQA.Selenium;
 namespace WebDriverSEd.ElementTypes
 {
-    public abstract class ContainterElement : ElementSe
+    public abstract class ContainterElement : BaseElementSe
     {
         public ContainterElement(IWebElement webElement)
             : base(webElement)
@@ -172,11 +172,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public ElementSe Element(Predicate<ElementSe> predicate)
+        public ElementSe Element(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Elements.Elements.Find(predicate);
+                return Elements.Find(predicate);
             }
             catch (Exception)
             {
@@ -184,11 +184,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public ButtonSe Button(Predicate<ElementSe> predicate)
+        public ButtonSe Button(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Buttons.Elements.Find(predicate).ConvertTo<ButtonSe>();
+                return Buttons.Find(predicate);
             }
             catch (Exception)
             {
@@ -196,11 +196,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public CheckBoxSe CheckBox(Predicate<ElementSe> predicate)
+        public CheckBoxSe CheckBox(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return CheckBoxes.Elements.Find(predicate).ConvertTo<CheckBoxSe>();
+                return CheckBoxes.Find(predicate);
             }
             catch (Exception)
             {
@@ -208,11 +208,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public DivSe Div(Predicate<ElementSe> predicate)
+        public DivSe Div(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Divs.Elements.Find(predicate).ConvertTo<DivSe>();
+                return Divs.Find(predicate);
             }
             catch (Exception)
             {
@@ -220,11 +220,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public ImageSe Image(Predicate<ElementSe> predicate)
+        public ImageSe Image(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Images.Elements.Find(predicate).ConvertTo<ImageSe>();
+                return Images.Find(predicate);
             }
             catch (Exception)
             {
@@ -232,11 +232,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public LabelSe Label(Predicate<ElementSe> predicate)
+        public LabelSe Label(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Labels.Elements.Find(predicate).ConvertTo<LabelSe>();
+                return Labels.Find(predicate);
             }
             catch (Exception)
             {
@@ -244,11 +244,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public LinkSe Link(Predicate<ElementSe> predicate)
+        public LinkSe Link(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Links.Elements.Find(predicate).ConvertTo<LinkSe>();
+                return Links.Find(predicate);
             }
             catch (Exception)
             {
@@ -256,11 +256,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public RadioButtonSe RadioButton(Predicate<ElementSe> predicate)
+        public RadioButtonSe RadioButton(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return RadioButtons.Elements.Find(predicate).ConvertTo<RadioButtonSe>();
+                return RadioButtons.Find(predicate);
             }
             catch (Exception)
             {
@@ -268,11 +268,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public SelectListSe SelectList(Predicate<ElementSe> predicate)
+        public SelectListSe SelectList(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return SelectLists.Elements.Find(predicate).ConvertTo<SelectListSe>();
+                return SelectLists.Find(predicate);
             }
             catch (Exception)
             {
@@ -280,11 +280,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public SpanSe Span(Predicate<ElementSe> predicate)
+        public SpanSe Span(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Spans.Elements.Find(predicate).ConvertTo<SpanSe>();
+                return Spans.Find(predicate);
             }
             catch (Exception)
             {
@@ -292,11 +292,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public TableSe Table(Predicate<ElementSe> predicate)
+        public TableSe Table(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return Tables.Elements.Find(predicate).ConvertTo<TableSe>();
+                return Tables.Find(predicate);
             }
             catch (Exception)
             {
@@ -304,11 +304,11 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public TextFieldSe TextField(Predicate<ElementSe> predicate)
+        public TextFieldSe TextField(Predicate<BaseElementSe> predicate)
         {
             try
             {
-                return TextFields.Elements.Find(predicate).ConvertTo<TextFieldSe>();
+                return TextFields.Find(predicate);
             }
             catch (Exception)
             {

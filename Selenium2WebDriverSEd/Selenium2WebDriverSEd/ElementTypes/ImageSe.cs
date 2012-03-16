@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class ImageSe : ElementSe
+    public class ImageSe : BaseElementSe
     {
         public ImageSe(IWebElement webElement)
             : base(webElement)
