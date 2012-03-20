@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TableCellSe : ContainterElement
+    public class TableCellSe : ElementSe
     {
         public TableCellSe(IWebElement webElement)
             : base(webElement)
@@ -25,12 +25,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public TableCellSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TableCellSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public TableCellSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TableCellSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

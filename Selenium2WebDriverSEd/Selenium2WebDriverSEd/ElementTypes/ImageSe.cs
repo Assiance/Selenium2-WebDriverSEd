@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class ImageSe : BaseElementSe
+    public class ImageSe : ElementSe
     {
         public ImageSe(IWebElement webElement)
             : base(webElement)
@@ -28,12 +28,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public ImageSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public ImageSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public ImageSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public ImageSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

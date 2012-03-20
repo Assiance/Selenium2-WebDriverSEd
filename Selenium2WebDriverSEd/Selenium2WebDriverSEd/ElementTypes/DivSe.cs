@@ -8,7 +8,7 @@ using System;
 using OpenQA.Selenium;
 namespace WebDriverSEd.ElementTypes
 {
-    public class DivSe : ContainterElement
+    public class DivSe : ElementSe
     {
         public DivSe(IWebElement webElement)
             : base(webElement)
@@ -25,12 +25,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public DivSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public DivSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public DivSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public DivSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

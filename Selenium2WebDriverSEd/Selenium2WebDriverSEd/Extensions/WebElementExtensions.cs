@@ -14,12 +14,11 @@ namespace WebDriverSEd.Extensions
 {
     public static class WebElementExtensions
     {
-        public static IWebElement FindElement(this IWebElement driver, By by, Func<IWebElement, bool> predicate)
+        public static IWebElement FindElement(this IWebElement driver, By by, Func<ElementSe, bool> predicate)
         {
             try
             {
                 return new ElementSeCollection(driver, by).Where(predicate).First();
-                //return driver.FindElements(by, predicate).First();
             }
             catch (Exception)
             {
@@ -27,12 +26,11 @@ namespace WebDriverSEd.Extensions
             }
         }
 
-        public static IEnumerable<IWebElement> FindElements(this IWebElement driver, By by, Func<IWebElement, bool> predicate)
+        public static IEnumerable<IWebElement> FindElements(this IWebElement driver, By by, Func<ElementSe, bool> predicate)
         {
             try
             {
                 return new ElementSeCollection(driver, by).Where(predicate);
-                //return driver.FindElements(by).Where(predicate);
             }
             catch (Exception)
             {
@@ -40,12 +38,11 @@ namespace WebDriverSEd.Extensions
             }
         }
 
-        public static IWebElement FindElement(this IWebDriver driver, By by, Func<IWebElement, bool> predicate)
+        public static IWebElement FindElement(this IWebDriver driver, By by, Func<ElementSe, bool> predicate)
         {
             try
             {
                 return new ElementSeCollection(driver, by).Where(predicate).First();
-                //return driver.FindElements(by, predicate).First();
             }
             catch (Exception)
             {
@@ -53,12 +50,11 @@ namespace WebDriverSEd.Extensions
             }
         }
 
-        public static IEnumerable<IWebElement> FindElements(this IWebDriver driver, By by, Func<IWebElement, bool> predicate)
+        public static IEnumerable<IWebElement> FindElements(this IWebDriver driver, By by, Func<ElementSe, bool> predicate)
         {
             try
             {
                 return new ElementSeCollection(driver, by).Where(predicate);
-                //return driver.FindElements(by).Where(predicate);
             }
             catch (Exception)
             {

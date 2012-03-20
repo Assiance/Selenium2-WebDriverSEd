@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TableSe : ContainterElement
+    public class TableSe : ElementSe
     {
         public TableSe(IWebElement webElement)
             : base(webElement)
@@ -23,12 +23,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public TableSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TableSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public TableSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TableSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TextFieldSe : BaseElementSe
+    public class TextFieldSe : ElementSe
     {
         public TextFieldSe(IWebElement webElement)
             : base(webElement)
@@ -28,12 +28,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public TextFieldSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TextFieldSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public TextFieldSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TextFieldSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

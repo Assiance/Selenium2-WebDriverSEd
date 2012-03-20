@@ -9,7 +9,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LabelSe : ContainterElement
+    public class LabelSe : ElementSe
     {
         public LabelSe(IWebElement webElement)
             : base(webElement)
@@ -26,12 +26,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public LabelSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public LabelSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public LabelSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public LabelSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

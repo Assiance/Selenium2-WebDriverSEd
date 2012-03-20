@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class RadioButtonSe : BaseElementSe
+    public class RadioButtonSe : ElementSe
     {
         public RadioButtonSe(IWebElement webElement)
             : base(webElement)
@@ -23,12 +23,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public RadioButtonSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public RadioButtonSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public RadioButtonSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public RadioButtonSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

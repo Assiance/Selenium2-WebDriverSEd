@@ -27,13 +27,13 @@ namespace WebDriverSEd.ElementTypes
             InitializeRowsandCells(columnTag);
         }
 
-        public TableBodySe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TableBodySe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
             InitializeRowsandCells(columnTag);
         }
 
-        public TableBodySe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TableBodySe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
             InitializeRowsandCells(columnTag);

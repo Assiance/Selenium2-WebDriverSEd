@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LinkSe : BaseElementSe
+    public class LinkSe : ElementSe
     {
         public LinkSe(IWebElement webElement)
             : base(webElement)
@@ -28,12 +28,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public LinkSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public LinkSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public LinkSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public LinkSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }
