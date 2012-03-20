@@ -25,12 +25,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public CheckBoxSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public CheckBoxSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public CheckBoxSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public CheckBoxSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

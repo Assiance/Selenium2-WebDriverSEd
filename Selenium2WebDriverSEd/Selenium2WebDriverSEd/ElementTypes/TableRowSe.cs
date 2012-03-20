@@ -9,7 +9,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TableRowSe : ContainterElement
+    public class TableRowSe : ElementSe
     {
         private List<TableCellSe> cells = new List<TableCellSe>();
 
@@ -25,13 +25,13 @@ namespace WebDriverSEd.ElementTypes
             InitializeCells();
         }
 
-        public TableRowSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TableRowSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
             InitializeCells();
         }
 
-        public TableRowSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TableRowSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
             InitializeCells();

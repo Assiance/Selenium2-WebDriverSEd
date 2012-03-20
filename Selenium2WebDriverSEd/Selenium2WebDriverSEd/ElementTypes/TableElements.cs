@@ -13,7 +13,7 @@ using WebDriverSEd.Extensions;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public abstract class TableElements : ContainterElement
+    public abstract class TableElements : ElementSe
     {
         private List<TableRowSe> _rows = new List<TableRowSe>();
         private List<TableCellSe> _cells = new List<TableCellSe>();
@@ -28,12 +28,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public TableElements(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public TableElements(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public TableElements(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public TableElements(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }

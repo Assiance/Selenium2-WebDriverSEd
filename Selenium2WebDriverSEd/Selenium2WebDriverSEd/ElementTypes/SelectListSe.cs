@@ -36,7 +36,7 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public SelectListSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public SelectListSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
             if (WebElement != null)
@@ -45,7 +45,7 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public SelectListSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public SelectListSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
             if (WebElement != null)

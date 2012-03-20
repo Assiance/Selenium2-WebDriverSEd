@@ -27,12 +27,12 @@ namespace WebDriverSEd.ElementTypes
             WebDriver = ElementsWebDriver;
         }
 
-        public ControlSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public ControlSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public ControlSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public ControlSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
             WebDriver = ElementsWebDriver;

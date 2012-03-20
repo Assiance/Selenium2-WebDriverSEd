@@ -27,7 +27,7 @@ namespace Selenium2WebDriverSEd.Test.Elements
         public void ExtraElementInfoTest()
         {
             WebDriver.Navigate().GoToUrl("https://stratusbeta.com/");
-
+            var r = new ElementSe(WebDriver, By.TagName("body")).Links;
             LinkSe CreateSiteLink = new LinkSe(WebDriver, By.LinkText("Create New Site"));
             Assert.AreEqual(CreateSiteLink.Url, "https://stratusbeta.com/Site/Create");
 

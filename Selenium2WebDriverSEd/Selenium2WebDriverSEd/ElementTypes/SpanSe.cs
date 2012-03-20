@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class SpanSe : ContainterElement
+    public class SpanSe : ElementSe
     {
         public SpanSe(IWebElement webElement)
             : base(webElement)
@@ -28,12 +28,12 @@ namespace WebDriverSEd.ElementTypes
         {
         }
 
-        public SpanSe(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+        public SpanSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
         }
 
-        public SpanSe(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+        public SpanSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
         }
