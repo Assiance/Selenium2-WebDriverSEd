@@ -16,6 +16,10 @@ namespace WebDriverSEd.ElementTypes
         public SelectListSe(IWebElement webElement)
             : base(webElement)
         {
+            if (WebElement != null)
+            {
+                SelectElement = new SelectElement(WebElement);
+            }
         }
 
         public SelectListSe(IWebDriver webDriver, By by)

@@ -16,25 +16,42 @@ namespace WebDriverSEd.ElementTypes
         public TableSe(IWebElement webElement)
             : base(webElement)
         {
+            InitializeHeadAndBody();
         }
 
         public TableSe(IWebElement webElement, By by)
             : base(webElement, by)
         {
+            InitializeHeadAndBody();
         }
 
         public TableSe(IWebDriver webDriver, By by, Func<ElementSe, bool> predicate)
             : base(webDriver, by, predicate)
         {
+            InitializeHeadAndBody();
         }
 
         public TableSe(IWebElement webElement, By by, Func<ElementSe, bool> predicate)
             : base(webElement, by, predicate)
         {
+            InitializeHeadAndBody();
         }
 
         public TableSe(IWebDriver webDriver, By by)
             : base(webDriver, by)
+        {
+            InitializeHeadAndBody();
+        }
+
+        public override string ElementTag
+        {
+            get { return "table"; }
+        }
+
+        public TableHeadSe TableHead { get; set; }
+        public TableBodySe TableBody { get; set; }
+
+        private void InitializeHeadAndBody()
         {
             if (WebElement == null)
             {
@@ -48,14 +65,6 @@ namespace WebDriverSEd.ElementTypes
 
             TableBody = new TableBodySe(WebElement, By.TagName("tbody"));
         }
-
-        public override string ElementTag
-        {
-            get { return "table"; }
-        }
-
-        public TableHeadSe TableHead { get; set; }
-        public TableBodySe TableBody { get; set; }
     }
 }
 

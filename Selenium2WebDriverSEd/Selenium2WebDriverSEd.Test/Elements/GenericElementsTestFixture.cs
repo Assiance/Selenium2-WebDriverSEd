@@ -63,6 +63,34 @@ namespace Selenium2WebDriverSEd.Test.Elements
             LinkSe createNewSiteLink = new LinkSe(WebDriver, By.TagName("a"), i => i.Text == "Create New Site");
         }
 
+        [Test]
+        public void MyTest()
+        {
+            WebDriver.Navigate().GoToUrl("http://www.nuget.org");
+
+            var searchBox = WebDriver.FindElement(By.Id("searchBoxInput"));
+            searchBox.SendKeys("WebDriver");
+
+            var searchButton = WebDriver.FindElement(By.Id("searchBoxSubmit"));
+            searchButton.Click();
+
+            var searchResults = WebDriver.FindElement(By.Id("searchResults"));
+            var theListItems = searchResults.FindElements(By.TagName("li"));
+
+            var searchResults2 = WebDriver.FindElement(By.Id("searchResults"));
+            var theListItems2 = searchResults.FindElements(By.CssSelector("ol#searchResults > li"));
+
+            var webDriverSEdLI = theListItems2.First(item => item.Text.Contains("WebDriverSEd"));
+            //var thePackage = results.First(i => i.Text.Contains("WebDriverSEd"));
+            //thePackage.FindElement(By.TagName("a")).Click();
+
+            webDriverSEdLI.FindElement(By.TagName("a")).Click();
+
+            var theTable = WebDriver.FindElements(By.TagName("table"));
+
+            var table = new TableSeCollection(WebDriver, By.ClassName("sexy-table"));
+        }
+
         [TearDown]
         public virtual void TearDown()
         {
