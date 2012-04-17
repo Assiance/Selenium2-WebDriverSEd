@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
+using WebDriverSEd.Extensions;
 
 namespace WebDriverSEd.ElementTypes
 {
@@ -73,7 +74,12 @@ namespace WebDriverSEd.ElementTypes
 
         public TableCellSe FindCell(string keyText)
         {
-            return Cells.Find(i => i.Text.Contains(keyText));
+            return Cells.Find(i => i.Text.RemoveLineBreaks().Contains(keyText));
+        }
+
+        public TableCellSe FindCell(Predicate<TableCellSe> predicate)
+        {
+            return Cells.Find(predicate);
         }
 
         public TableCellSe GetCell(int targetCell)

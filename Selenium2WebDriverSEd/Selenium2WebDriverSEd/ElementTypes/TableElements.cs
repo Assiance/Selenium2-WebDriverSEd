@@ -87,12 +87,12 @@ namespace WebDriverSEd.ElementTypes
 
         public TableRowSe FindRow(string key, int keyColumn)
         {
-            return Rows.Find(i => i.Cells[keyColumn].Text.Contains(key));
+            return Rows.Find(i => i.Cells[keyColumn].Text.RemoveLineBreaks().Contains(key));
         }
 
         public TableRowSe FindRow(FindRow findRow)
         {
-            return Rows.Find(i => i.Cells[findRow.KeyColumn].Text.Contains(findRow.Key));
+            return Rows.Find(i => i.Cells[findRow.KeyColumn].Text.RemoveLineBreaks().Contains(findRow.Key));
         }
 
         public TableRowSe FindRow(Predicate<TableRowSe> predicate)
