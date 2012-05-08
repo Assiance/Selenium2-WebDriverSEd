@@ -61,6 +61,7 @@ namespace Selenium2WebDriverSEd.Test.Elements
             WebDriver.Navigate().GoToUrl("https://stratusbeta.com/");
 
             LinkSe createNewSiteLink = new LinkSe(WebDriver, By.TagName("a"), i => i.Text == "Create New Site");
+            createNewSiteLink.WaitUntilVisible();
         }
 
         [Test]

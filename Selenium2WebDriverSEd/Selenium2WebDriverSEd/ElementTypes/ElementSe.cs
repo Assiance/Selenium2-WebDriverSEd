@@ -5,6 +5,7 @@
  ********************************************************/
 
 using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Internal;
 using WebDriverSEd.Extensions;
@@ -654,6 +655,26 @@ namespace WebDriverSEd.ElementTypes
         public void Submit()
         {
             WebElement.Submit();
+        }
+
+        public void WaitUntilVisible()
+        {
+            int tempTime = 0;
+            while (!WebElement.Displayed && tempTime <= 5000)
+            {
+                Thread.Sleep(100);
+                tempTime += 100;
+            }
+        }
+
+        public void WaitUntilVisible(int timeoutTime)
+        {
+            int tempTime = 0;
+            while (!WebElement.Displayed && tempTime <= timeoutTime)
+            {
+                Thread.Sleep(100);
+                tempTime += 100;
+            }
         }
 
         public bool TestElementAccess(string elementLabel, bool hasAccess)
