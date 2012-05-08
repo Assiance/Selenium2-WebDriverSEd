@@ -677,6 +677,26 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
+        public void WaitUntilExists()
+        {
+            int tempTime = 0;
+            while (!Exists && tempTime <= 5000)
+            {
+                Thread.Sleep(100);
+                tempTime += 100;
+            }
+        }
+
+        public void WaitUntilExists(int timeoutTime)
+        {
+            int tempTime = 0;
+            while (!Exists && tempTime <= timeoutTime)
+            {
+                Thread.Sleep(100);
+                tempTime += 100;
+            }
+        }
+
         public bool TestElementAccess(string elementLabel, bool hasAccess)
         {
             if (!Exists)
