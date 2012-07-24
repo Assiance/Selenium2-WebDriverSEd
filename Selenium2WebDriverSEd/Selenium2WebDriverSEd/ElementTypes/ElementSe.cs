@@ -657,17 +657,7 @@ namespace WebDriverSEd.ElementTypes
             WebElement.Submit();
         }
 
-        public void WaitUntilVisible()
-        {
-            int tempTime = 0;
-            while (!WebElement.Displayed && tempTime <= 5000)
-            {
-                Thread.Sleep(100);
-                tempTime += 100;
-            }
-        }
-
-        public void WaitUntilVisible(int timeoutTime)
+        public void WaitUntilVisible(int timeoutTime = 5000)
         {
             int tempTime = 0;
             while (!WebElement.Displayed && tempTime <= timeoutTime)
@@ -677,17 +667,7 @@ namespace WebDriverSEd.ElementTypes
             }
         }
 
-        public void WaitUntilExists()
-        {
-            int tempTime = 0;
-            while (!Exists && tempTime <= 5000)
-            {
-                Thread.Sleep(100);
-                tempTime += 100;
-            }
-        }
-
-        public void WaitUntilExists(int timeoutTime)
+        public void WaitUntilExists(int timeoutTime = 5000)
         {
             int tempTime = 0;
             while (!Exists && tempTime <= timeoutTime)
