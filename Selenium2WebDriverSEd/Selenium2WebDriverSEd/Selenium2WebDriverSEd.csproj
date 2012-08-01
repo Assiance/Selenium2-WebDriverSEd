@@ -80,7 +80,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementTypes\BaseSeCollection.cs" />
     <Compile Include="ElementTypes\ControlSeCollection.cs" />
+    <Compile Include="ElementTypes\ListItemSe.cs" />
+    <Compile Include="ElementTypes\ListItemSeCollection.cs" />
     <Compile Include="ElementTypes\TableElements.cs" />
     <Compile Include="Entities\Data\ElementNames.cs" />
     <Compile Include="Entities\Data\ElementType.cs" />

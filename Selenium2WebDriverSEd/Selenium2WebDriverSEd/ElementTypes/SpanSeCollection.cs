@@ -13,74 +13,35 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class SpanSeCollection : List<SpanSe>
+    public class SpanSeCollection : BaseSeCollection<SpanSe>
     {
-        public SpanSeCollection()
+       public SpanSeCollection()
+        {
+        }
+
+        public SpanSeCollection(IWebDriver webDriver)
+            : base(webDriver)
         {
         }
 
         public SpanSeCollection(IWebDriver webDriver, By by)
-        { 
-            try
-            {
-                var tempElements = webDriver.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new SpanSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
+            : base(webDriver, by)
+        {
         }
 
         public SpanSeCollection(IWebElement webElement, By by)
+            : base(webElement, by)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new SpanSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public SpanSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
         {
-            try
-            {
-                var tempElements = webDriver.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new SpanSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public SpanSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new SpanSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
     }
 }

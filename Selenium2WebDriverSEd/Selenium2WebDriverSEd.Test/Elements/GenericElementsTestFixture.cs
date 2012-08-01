@@ -75,6 +75,8 @@ namespace Selenium2WebDriverSEd.Test.Elements
             var searchButton = WebDriver.FindElement(By.Id("searchBoxSubmit"));
             searchButton.Click();
 
+            var links = new LinkSeCollection(WebDriver);
+
             var searchResults = WebDriver.FindElement(By.Id("searchResults"));
             var theListItems = searchResults.FindElements(By.TagName("li"));
 

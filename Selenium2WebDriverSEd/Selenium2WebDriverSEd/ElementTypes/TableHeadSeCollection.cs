@@ -13,74 +13,35 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class TableHeadSeCollection : List<TableHeadSe>
+    public class TableHeadSeCollection : BaseSeCollection<TableHeadSe>
     {
         public TableHeadSeCollection()
         {
         }
 
-        public TableHeadSeCollection(IWebDriver webDriver, By by)
-        { 
-            try
-            {
-                var tempElements = webDriver.FindElements(by);
+        public TableHeadSeCollection(IWebDriver webDriver)
+            : base(webDriver)
+        {
+        }
 
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new TableHeadSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
+        public TableHeadSeCollection(IWebDriver webDriver, By by)
+            : base(webDriver, by)
+        {
         }
 
         public TableHeadSeCollection(IWebElement webElement, By by)
+            : base(webElement, by)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new TableHeadSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public TableHeadSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
         {
-            try
-            {
-                var tempElements = webDriver.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new TableHeadSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public TableHeadSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new TableHeadSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
     }
 }

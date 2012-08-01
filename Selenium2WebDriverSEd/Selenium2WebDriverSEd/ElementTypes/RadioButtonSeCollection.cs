@@ -13,74 +13,35 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class RadioButtonSeCollection : List<RadioButtonSe>
+    public class RadioButtonSeCollection : BaseSeCollection<RadioButtonSe>
     {
         public RadioButtonSeCollection()
         {
         }
 
-        public RadioButtonSeCollection(IWebDriver webDriver, By by)
-        { 
-            try
-            {
-                var tempElements = webDriver.FindElements(by);
+        public RadioButtonSeCollection(IWebDriver webDriver)
+            : base(webDriver)
+        {
+        }
 
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new RadioButtonSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
+        public RadioButtonSeCollection(IWebDriver webDriver, By by)
+            : base(webDriver, by)
+        {
         }
 
         public RadioButtonSeCollection(IWebElement webElement, By by)
+            : base(webElement, by)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new RadioButtonSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public RadioButtonSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
         {
-            try
-            {
-                var tempElements = webDriver.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new RadioButtonSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public RadioButtonSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new RadioButtonSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
     }
 }

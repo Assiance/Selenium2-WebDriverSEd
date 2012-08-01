@@ -11,74 +11,35 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LabelSeCollection : List<LabelSe>
+    public class LabelSeCollection : BaseSeCollection<LabelSe>
     {
         public LabelSeCollection()
         {
         }
 
-        public LabelSeCollection(IWebDriver webDriver, By by)
-        { 
-            try
-            {
-                var tempElements = webDriver.FindElements(by);
+        public LabelSeCollection(IWebDriver webDriver)
+            : base(webDriver)
+        {
+        }
 
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LabelSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
+        public LabelSeCollection(IWebDriver webDriver, By by)
+            : base(webDriver, by)
+        {
         }
 
         public LabelSeCollection(IWebElement webElement, By by)
+            : base(webElement, by)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LabelSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public LabelSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            : base(webDriver, by, predicate)
         {
-            try
-            {
-                var tempElements = webDriver.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LabelSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public LabelSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            : base(webElement, by, predicate)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LabelSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
     }
 }

@@ -13,74 +13,35 @@ using OpenQA.Selenium;
 
 namespace WebDriverSEd.ElementTypes
 {
-    public class LinkSeCollection : List<LinkSe>
+    public class LinkSeCollection : BaseSeCollection<LinkSe>
     {
         public LinkSeCollection()
         {
         }
 
-        public LinkSeCollection(IWebDriver webDriver, By by)
-        { 
-            try
-            {
-                var tempElements = webDriver.FindElements(by);
+        public LinkSeCollection(IWebDriver webDriver)
+            : base(webDriver)
+        {
+        }
 
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LinkSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
+        public LinkSeCollection(IWebDriver webDriver, By by)
+            :base(webDriver, by)
+        { 
         }
 
         public LinkSeCollection(IWebElement webElement, By by)
+            :base(webElement, by)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LinkSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public LinkSeCollection(IWebDriver webDriver, By by, Func<IWebElement, bool> predicate)
+            :base(webDriver, by, predicate)
         {
-            try
-            {
-                var tempElements = webDriver.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LinkSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
 
         public LinkSeCollection(IWebElement webElement, By by, Func<IWebElement, bool> predicate)
+            :base(webElement, by, predicate)
         {
-            try
-            {
-                var tempElements = webElement.FindElements(by, predicate);
-
-                foreach (IWebElement element in tempElements)
-                {
-                    this.Add(new LinkSe(element));
-                }
-            }
-            catch (NoSuchElementException)
-            {
-            }
         }
     }
 }
