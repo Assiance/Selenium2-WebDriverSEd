@@ -28,17 +28,17 @@ namespace Selenium2WebDriverSEd.Test.Elements
         {
             WebDriver.Navigate().GoToUrl("https://stratusbeta.com/");
             var r = new ElementSe(WebDriver, By.TagName("body")).Links;
-            LinkSe CreateSiteLink = new LinkSe(WebDriver, By.LinkText("Create New Site"));
+            LinkSe CreateSiteLink = new LinkSe(WebDriver, By.LinkText("Create a new site"));
             Assert.AreEqual(CreateSiteLink.Url, "https://stratusbeta.com/Site/Create");
 
-            DivSe buttonsDiv = new DivSe(WebDriver, By.CssSelector("#wrapper div#content fieldset div.formButtons"));
-            Assert.AreEqual(buttonsDiv.ClassName, "formButtons rightAlign");
+            DivSe buttonsDiv = new DivSe(WebDriver, By.CssSelector("#login form ul li div.buttons"));
+            Assert.AreEqual(buttonsDiv.ClassName, "buttons");
 
             ButtonSe continueButton = new ButtonSe(WebDriver, By.Id("Continue"));          
             Assert.AreEqual(continueButton.ElementTag, "input");
             Assert.AreEqual(continueButton.Value, "Continue");
             Assert.AreEqual(continueButton.Id, "Continue");
-            Assert.AreEqual(continueButton.Type, "submit");
+            Assert.AreEqual(continueButton.Type, "button");
 
             continueButton.Click();
 
@@ -50,9 +50,9 @@ namespace Selenium2WebDriverSEd.Test.Elements
             rememberMeCheckBox.Click();
             Assert.AreEqual(rememberMeCheckBox.IsChecked, true);
 
-            LabelSe rememberMeLabel = new LabelSe(WebDriver, By.CssSelector("#content form fieldset div.leftColumn div.field label.inline"));
-            Assert.AreEqual(rememberMeLabel.For, "rememberMe");
-            Assert.AreEqual(rememberMeLabel.Text, "Keep me signed in.");
+            LabelSe rememberMeLabel = new LabelSe(WebDriver, By.CssSelector("#login form ul.horizontal li p.buttons label"));
+            Assert.AreEqual(rememberMeLabel.For, null);
+            Assert.AreEqual(rememberMeLabel.Text, "Remember me");
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace Selenium2WebDriverSEd.Test.Elements
         {
             WebDriver.Navigate().GoToUrl("https://stratusbeta.com/");
 
-            LinkSe createNewSiteLink = new LinkSe(WebDriver, By.TagName("a"), i => i.Text == "Create New Site");
+            LinkSe createNewSiteLink = new LinkSe(WebDriver, By.TagName("a"), i => i.Text == "Create a new site");
             createNewSiteLink.WaitUntilVisible();
         }
 
