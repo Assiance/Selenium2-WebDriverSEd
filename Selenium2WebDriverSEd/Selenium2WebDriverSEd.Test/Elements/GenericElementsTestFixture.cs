@@ -29,7 +29,7 @@ namespace Selenium2WebDriverSEd.Test.Elements
             WebDriver.Navigate().GoToUrl("https://stratusbeta.com/");
             var r = new ElementSe(WebDriver, By.TagName("body")).Links;
             LinkSe CreateSiteLink = new LinkSe(WebDriver, By.LinkText("Create a new site"));
-            Assert.AreEqual(CreateSiteLink.Url, "https://stratusbeta.com/Site/Create");
+            Assert.AreEqual(CreateSiteLink.Url, "https://onrealm.org/Site/Create");
 
             DivSe buttonsDiv = new DivSe(WebDriver, By.CssSelector("#login form ul li div.buttons"));
             Assert.AreEqual(buttonsDiv.ClassName, "buttons");
