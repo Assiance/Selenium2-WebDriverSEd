@@ -65,7 +65,7 @@ namespace Selenium2WebDriverSEd.Test.Elements
         }
 
         [Test]
-        public void MyTest()
+        public void MyTest2()
         {
             WebDriver.Navigate().GoToUrl("http://www.nuget.org");
 
