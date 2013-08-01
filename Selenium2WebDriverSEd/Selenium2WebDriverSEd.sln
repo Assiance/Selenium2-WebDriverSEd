@@ -1,14 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium2WebDriverSEd", "Selenium2WebDriverSEd\Selenium2WebDriverSEd.csproj", "{E3364C8D-067A-4164-A7E3-99B74D836732}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium2WebDriverSEd.Test", "Selenium2WebDriverSEd.Test\Selenium2WebDriverSEd.Test.csproj", "{C3263F54-46E0-4D68-B03C-41F684E4E815}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F4815983-B54D-4332-996E-52B64F6C2C5C}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium2WebDriverSEd", "Selenium2WebDriverSEd\Selenium2WebDriverSEd.csproj", "{E3364C8D-067A-4164-A7E3-99B74D836732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium2WebDriverSEd.Test", "Selenium2WebDriverSEd.Test\Selenium2WebDriverSEd.Test.csproj", "{C3263F54-46E0-4D68-B03C-41F684E4E815}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
