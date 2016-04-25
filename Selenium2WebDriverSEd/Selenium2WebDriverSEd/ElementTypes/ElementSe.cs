@@ -6,7 +6,6 @@
 
 using System;
 using System.Threading;
-using NUnit.Framework;
 using OpenQA.Selenium.Internal;
 using WebDriverSEd.Extensions;
 using OpenQA.Selenium;
@@ -674,26 +673,6 @@ namespace WebDriverSEd.ElementTypes
             {
                 Thread.Sleep(100);
                 tempTime += 100;
-            }
-        }
-
-        public bool TestElementAccess(string elementLabel, bool hasAccess)
-        {
-            if (!Exists)
-            {
-                Assert.That(!hasAccess, "The {0} does not exist and it should.", elementLabel);
-                return false;
-            }
-
-            if (hasAccess)
-            {
-                Assert.That(Exists, "The {0} does not exist and it should.", elementLabel);
-                return true;
-            }
-            else
-            {
-                Assert.That(!Exists, "The {0} exists and it should not.", elementLabel);
-                return false;
             }
         }
 

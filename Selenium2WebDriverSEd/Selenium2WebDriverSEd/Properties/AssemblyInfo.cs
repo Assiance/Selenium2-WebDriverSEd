@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bradford Foxworth-Hill")]
 [assembly: AssemblyProduct("Selenium2WebDriverSEd")]
-[assembly: AssemblyCopyright("Copyright © Bradford Foxworth-Hill 2012")]
+[assembly: AssemblyCopyright("Copyright © Bradford Foxworth-Hill 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.24")]
-[assembly: AssemblyFileVersion("1.0.0.24")]
+[assembly: AssemblyVersion("1.0.25")]
+[assembly: AssemblyFileVersion("1.0.0.25")]

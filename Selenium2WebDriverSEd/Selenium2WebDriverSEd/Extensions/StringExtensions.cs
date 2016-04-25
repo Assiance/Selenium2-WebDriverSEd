@@ -10,24 +10,11 @@ using System.Xml.Linq;
 using System.Xml;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NUnit.Framework;
 
 namespace WebDriverSEd.Extensions
 {
     public static class StringExtensions
     {
-        public static void Contains(this string target, string value, bool hasAccess)
-        {
-            if (hasAccess)
-            {
-                Assert.That(target.Contains(value), "Target should include {0} and it does not.", value);
-            }
-            else
-            {
-                Assert.That(!target.Contains(value), "Target should not include {0} and it does.", value);
-            }
-        }
-
         public static string ReplaceFirst(this string text, string search, string replace)
         {
             int pos = text.IndexOf(search);
